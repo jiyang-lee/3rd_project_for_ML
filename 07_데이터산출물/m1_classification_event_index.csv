@@ -1,0 +1,51 @@
+﻿sample_id,manufacturer,label,source_file,source_event_id,substation_id,window_start,window_end,window_days,window_policy,report_date,possible_anomaly_start,possible_anomaly_end,training_start,training_end
+efd_possible_0001,manufacturer_1,efd_possible,faults.csv,1,10,2014-04-27 14:44:00,2014-05-04 14:44:00,7.0,report_date_minus_7d_to_report_date,2014-05-04 14:44:00,2014-05-03 16:00:00,2014-05-05 04:00:00,2012-03-28 09:00:00,2014-04-20 14:44:00
+efd_possible_0003,manufacturer_1,efd_possible,faults.csv,3,12,2015-11-24 10:56:00,2015-12-01 10:56:00,7.0,report_date_minus_7d_to_report_date,2015-12-01 10:56:00,2015-11-29 12:00:00,2015-12-02 10:56:00,2015-03-01 00:00:00,2015-11-17 10:56:00
+efd_possible_0040,manufacturer_1,efd_possible,faults.csv,40,24,2016-03-31 07:47:00,2016-04-07 07:47:00,7.0,report_date_minus_7d_to_report_date,2016-04-07 07:47:00,2016-04-05 13:00:00,2016-04-08 07:47:00,2015-11-20 00:00:00,2016-03-24 07:47:00
+efd_possible_0052,manufacturer_1,efd_possible,faults.csv,52,21,2016-12-05 15:55:00,2016-12-12 15:55:00,7.0,report_date_minus_7d_to_report_date,2016-12-12 15:55:00,2016-12-11 20:00:00,2016-12-13 15:55:00,2015-11-30 09:00:00,2016-11-28 15:55:00
+efd_possible_0067,manufacturer_1,efd_possible,faults.csv,67,7,2017-11-19 13:15:00,2017-11-26 13:15:00,7.0,report_date_minus_7d_to_report_date,2017-11-26 13:15:00,2017-04-23 01:00:00,2017-11-27 13:15:00,2015-04-12 00:00:00,2017-04-11 00:00:00
+efd_possible_0044,manufacturer_1,efd_possible,faults.csv,44,8,2018-04-20 08:15:00,2018-04-27 08:15:00,7.0,report_date_minus_7d_to_report_date,2018-04-27 08:15:00,2018-04-26 06:00:00,2018-04-30 09:45:07,2015-09-24 18:00:00,2018-04-13 08:15:00
+efd_possible_0020,manufacturer_1,efd_possible,faults.csv,20,11,2018-06-25 10:49:00,2018-07-02 10:49:00,7.0,report_date_minus_7d_to_report_date,2018-07-02 10:49:00,2018-06-29 05:00:00,2018-07-02 19:02:04,2015-02-25 14:00:00,2018-06-18 10:49:00
+efd_possible_0064,manufacturer_1,efd_possible,faults.csv,64,6,2019-04-09 09:41:00,2019-04-16 09:41:00,7.0,report_date_minus_7d_to_report_date,2019-04-16 09:41:00,2019-04-13 06:00:00,2019-04-17 10:49:46,2019-03-13 09:10:00,2019-04-02 09:41:00
+efd_possible_0049,manufacturer_1,efd_possible,faults.csv,49,18,2019-04-27 07:19:00,2019-05-04 07:19:00,7.0,report_date_minus_7d_to_report_date,2019-05-04 07:19:00,2019-05-03 11:00:00,2019-05-05 07:19:00,2016-12-16 10:00:00,2019-04-20 07:19:00
+efd_possible_0047,manufacturer_1,efd_possible,faults.csv,47,28,2020-01-06 10:55:00,2020-01-13 10:55:00,7.0,report_date_minus_7d_to_report_date,2020-01-13 10:55:00,2020-01-08 23:00:00,2020-01-14 10:47:32,2019-10-25 00:00:00,2019-12-30 10:55:00
+efd_possible_0057,manufacturer_1,efd_possible,faults.csv,57,9,2020-02-17 21:13:00,2020-02-24 21:13:00,7.0,report_date_minus_7d_to_report_date,2020-02-24 21:13:00,2020-02-24 17:45:00,2020-02-25 18:11:43,2015-02-26 14:00:00,2020-02-10 21:13:00
+efd_possible_0015,manufacturer_1,efd_possible,faults.csv,15,29,2020-02-29 07:59:43,2020-03-07 07:59:43,7.0,report_date_minus_7d_to_report_date,2020-03-07 07:59:43,2020-03-06 12:00:00,2020-03-08 07:59:43,2019-10-03 07:00:00,2020-02-22 07:59:43
+efd_possible_0010,manufacturer_1,efd_possible,faults.csv,10,30,2020-03-09 15:04:00,2020-03-16 15:04:00,7.0,report_date_minus_7d_to_report_date,2020-03-16 15:04:00,2020-03-12 19:00:00,2020-03-22 22:45:31,2019-12-01 00:00:00,2020-03-02 15:04:00
+efd_possible_0053,manufacturer_1,efd_possible,faults.csv,53,13,2020-05-19 10:00:00,2020-05-26 10:00:00,7.0,report_date_minus_7d_to_report_date,2020-05-26 10:00:00,2020-05-25 03:00:00,2020-05-27 18:42:13,2016-07-27 15:17:00,2020-05-12 10:00:00
+efd_possible_0007,manufacturer_1,efd_possible,faults.csv,7,26,2020-06-06 10:38:00,2020-06-13 10:38:00,7.0,report_date_minus_7d_to_report_date,2020-06-13 10:38:00,2020-06-12 12:00:00,2020-06-14 10:38:00,2018-10-18 13:00:00,2020-05-30 10:38:00
+normal_0027,manufacturer_1,normal,normal_events.csv,27,12,2015-06-24 13:34:00,2015-07-01 13:34:00,7.0,normal_event_start_to_end,,,,2015-02-25 14:00:00,2015-06-24 13:34:00
+normal_0041,manufacturer_1,normal,normal_events.csv,41,2,2016-09-16 00:00:00,2016-09-23 00:00:00,7.0,normal_event_start_to_end,,,,2015-02-26 11:00:00,2016-09-16 00:00:00
+normal_0048,manufacturer_1,normal,normal_events.csv,48,11,2016-09-30 00:00:00,2016-10-07 00:00:00,7.0,normal_event_start_to_end,,,,2015-02-25 14:00:00,2016-09-30 00:00:00
+normal_0050,manufacturer_1,normal,normal_events.csv,50,17,2016-11-09 00:00:00,2016-11-16 00:00:00,7.0,normal_event_start_to_end,,,,2015-12-02 12:00:00,2016-11-09 00:00:00
+normal_0025,manufacturer_1,normal,normal_events.csv,25,20,2017-01-31 00:00:00,2017-02-07 00:00:00,7.0,normal_event_start_to_end,,,,2015-05-18 17:52:00,2017-01-31 00:00:00
+normal_0066,manufacturer_1,normal,normal_events.csv,66,19,2017-06-14 00:00:00,2017-06-21 00:00:00,7.0,normal_event_start_to_end,,,,2015-09-15 09:31:00,2017-06-14 00:00:00
+normal_0022,manufacturer_1,normal,normal_events.csv,22,5,2017-09-13 00:00:00,2017-09-20 00:00:00,7.0,normal_event_start_to_end,,,,2015-09-14 00:00:00,2017-09-13 00:00:00
+normal_0012,manufacturer_1,normal,normal_events.csv,12,19,2017-09-30 00:00:00,2017-10-07 00:00:00,7.0,normal_event_start_to_end,,,,2015-10-01 00:00:00,2017-09-30 00:00:00
+normal_0055,manufacturer_1,normal,normal_events.csv,55,23,2017-10-06 00:00:00,2017-10-13 00:00:00,7.0,normal_event_start_to_end,,,,2016-06-02 08:00:00,2017-10-06 00:00:00
+normal_0016,manufacturer_1,normal,normal_events.csv,16,17,2017-10-15 00:00:00,2017-10-22 00:00:00,7.0,normal_event_start_to_end,,,,2015-12-02 12:00:00,2017-10-15 00:00:00
+normal_0035,manufacturer_1,normal,normal_events.csv,35,11,2017-10-31 00:00:00,2017-11-07 00:00:00,7.0,normal_event_start_to_end,,,,2015-11-01 00:00:00,2017-10-31 00:00:00
+normal_0019,manufacturer_1,normal,normal_events.csv,19,8,2018-02-01 00:00:00,2018-02-08 00:00:00,7.0,normal_event_start_to_end,,,,2016-02-02 00:00:00,2018-02-01 00:00:00
+normal_0026,manufacturer_1,normal,normal_events.csv,26,4,2018-02-19 00:00:00,2018-02-26 00:00:00,7.0,normal_event_start_to_end,,,,2016-02-20 00:00:00,2018-02-19 00:00:00
+normal_0017,manufacturer_1,normal,normal_events.csv,17,2,2018-02-27 00:00:00,2018-03-06 00:00:00,7.0,normal_event_start_to_end,,,,2016-02-28 00:00:00,2018-02-27 00:00:00
+normal_0030,manufacturer_1,normal,normal_events.csv,30,16,2018-02-28 00:00:00,2018-03-07 00:00:00,7.0,normal_event_start_to_end,,,,2017-08-08 13:39:00,2018-02-28 00:00:00
+normal_0058,manufacturer_1,normal,normal_events.csv,58,5,2018-02-28 00:00:00,2018-03-07 00:00:00,7.0,normal_event_start_to_end,,,,2016-02-29 00:00:00,2018-02-28 00:00:00
+normal_0046,manufacturer_1,normal,normal_events.csv,46,4,2018-06-19 00:00:00,2018-06-26 00:00:00,7.0,normal_event_start_to_end,,,,2016-06-19 00:00:00,2018-06-19 00:00:00
+normal_0039,manufacturer_1,normal,normal_events.csv,39,15,2018-09-30 00:00:00,2018-10-07 00:00:00,7.0,normal_event_start_to_end,,,,2017-06-05 10:34:00,2018-09-30 00:00:00
+normal_0056,manufacturer_1,normal,normal_events.csv,56,2,2018-11-29 00:00:00,2018-12-06 00:00:00,7.0,normal_event_start_to_end,,,,2016-11-29 00:00:00,2018-11-29 00:00:00
+normal_0018,manufacturer_1,normal,normal_events.csv,18,16,2018-11-30 00:00:00,2018-12-07 00:00:00,7.0,normal_event_start_to_end,,,,2017-08-08 13:39:00,2018-11-30 00:00:00
+normal_0028,manufacturer_1,normal,normal_events.csv,28,7,2019-01-01 10:29:00,2019-01-08 10:29:00,7.0,normal_event_start_to_end,,,,2018-05-23 10:32:00,2019-01-01 10:29:00
+normal_0002,manufacturer_1,normal,normal_events.csv,2,9,2019-01-02 00:00:00,2019-01-09 00:00:00,7.0,normal_event_start_to_end,,,,2017-01-02 00:00:00,2019-01-02 00:00:00
+normal_0033,manufacturer_1,normal,normal_events.csv,33,3,2019-01-11 00:00:00,2019-01-18 00:00:00,7.0,normal_event_start_to_end,,,,2017-01-11 00:00:00,2019-01-11 00:00:00
+normal_0059,manufacturer_1,normal,normal_events.csv,59,22,2019-01-31 00:00:00,2019-02-07 00:00:00,7.0,normal_event_start_to_end,,,,2018-06-21 10:00:00,2019-01-31 00:00:00
+normal_0004,manufacturer_1,normal,normal_events.csv,4,15,2019-03-01 00:00:00,2019-03-08 00:00:00,7.0,normal_event_start_to_end,,,,2017-06-05 10:34:00,2019-03-01 00:00:00
+normal_0031,manufacturer_1,normal,normal_events.csv,31,3,2019-09-01 00:00:00,2019-09-08 00:00:00,7.0,normal_event_start_to_end,,,,2017-08-31 00:00:00,2019-09-01 00:00:00
+normal_0042,manufacturer_1,normal,normal_events.csv,42,22,2019-11-01 00:00:00,2019-11-08 00:00:00,7.0,normal_event_start_to_end,,,,2018-06-21 10:00:00,2019-11-01 00:00:00
+normal_0021,manufacturer_1,normal,normal_events.csv,21,1,2019-12-01 00:00:00,2019-12-08 00:00:00,7.0,normal_event_start_to_end,,,,2018-06-20 14:50:00,2019-12-01 00:00:00
+normal_0061,manufacturer_1,normal,normal_events.csv,61,14,2019-12-05 00:00:00,2019-12-12 00:00:00,7.0,normal_event_start_to_end,,,,2017-12-04 00:00:00,2019-12-05 00:00:00
+normal_0014,manufacturer_1,normal,normal_events.csv,14,26,2019-12-08 00:00:00,2019-12-15 00:00:00,7.0,normal_event_start_to_end,,,,2018-10-18 13:10:00,2019-12-08 00:00:00
+normal_0068,manufacturer_1,normal,normal_events.csv,68,13,2019-12-20 00:00:00,2019-12-27 00:00:00,7.0,normal_event_start_to_end,,,,2017-12-19 00:00:00,2019-12-20 00:00:00
+normal_0054,manufacturer_1,normal,normal_events.csv,54,22,2020-03-14 00:00:00,2020-03-21 00:00:00,7.0,normal_event_start_to_end,,,,2019-04-01 00:00:00,2020-03-14 00:00:00
+normal_0051,manufacturer_1,normal,normal_events.csv,51,20,2020-04-01 00:00:00,2020-04-08 00:00:00,7.0,normal_event_start_to_end,,,,2018-04-01 00:00:00,2020-04-01 00:00:00
+normal_0043,manufacturer_1,normal,normal_events.csv,43,25,2020-04-05 00:00:00,2020-04-12 00:00:00,7.0,normal_event_start_to_end,,,,2018-04-05 00:00:00,2020-04-05 00:00:00
+normal_0008,manufacturer_1,normal,normal_events.csv,8,6,2020-06-02 00:00:00,2020-06-09 00:00:00,7.0,normal_event_start_to_end,,,,2019-04-23 09:41:00,2020-06-02 00:00:00
