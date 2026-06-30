@@ -1,0 +1,24 @@
+﻿section,item,value,note,final_decision
+source_count,normal_events,35.0,company provided normal label,M1_4class_possible
+source_count,normal,35.0,taxonomy source rows,M1_4class_possible
+source_count,fault,67.0,taxonomy source rows,M1_4class_possible
+source_count,task,43.0,taxonomy source rows,M1_4class_possible
+source_count,activity,55.0,taxonomy source rows,M1_4class_possible
+fault_detail,fault_disturbance_rows,67.0,disturbances type=fault,M1_4class_possible
+fault_detail,faults_csv_matched,33.0,exact match on substation and event time,M1_4class_possible
+fault_detail,fault_detail_missing,34.0,"recorded as efd_possible_unknown, not False",M1_4class_possible
+fault_detail,fault_label_known,31.0,fault metadata only,M1_4class_possible
+fault_detail,fault_label_unknown,2.0,fault metadata only,M1_4class_possible
+fault_detail,efd_possible_true,29.0,fault metadata only,M1_4class_possible
+fault_detail,efd_possible_false,4.0,fault metadata only,M1_4class_possible
+baseline,compact13_macro_f1,0.4356481042177636,group CV logistic sanity check,M1_4class_possible
+baseline,expanded154_macro_f1,0.47114157818036145,comparison only,M1_4class_possible
+baseline,compact13_lift_over_dummy,0.30802923280240746,macro f1 lift,M1_4class_possible
+window_policy,normal_baseline_included,35.0,coverage >= 0.95,M1_4class_possible
+window_policy,normal_overlap_rows,0.0,rows with another disturbance in selected window,M1_4class_possible
+window_policy,fault_baseline_included,62.0,coverage >= 0.95,M1_4class_possible
+window_policy,fault_overlap_rows,9.0,rows with another disturbance in selected window,M1_4class_possible
+window_policy,task_baseline_included,37.0,coverage >= 0.95,M1_4class_possible
+window_policy,task_overlap_rows,29.0,rows with another disturbance in selected window,M1_4class_possible
+window_policy,activity_baseline_included,47.0,coverage >= 0.95,M1_4class_possible
+window_policy,activity_overlap_rows,5.0,rows with another disturbance in selected window,M1_4class_possible
