@@ -1,0 +1,3 @@
+﻿dataset_id,description,rows,normal_rows,positive_rows,positive_event_ids,event20_included,event67_included,window_policy_values,window_days_min,window_days_median,window_days_max,coverage_min,coverage_median,coverage_max,sample_count_min,sample_count_median,sample_count_max,learning_feature_count
+main_no_event20,"Event 20 제외, Event 67 포함",49,35,14,"1,3,7,10,15,40,44,47,49,52,53,57,64,67",False,True,normal_event_start_to_end|report_date_minus_7d_to_report_date,7.0,7.0,7.0,0.99504,1.0,1.0,1003,1008.0,1008,70
+strict_no_event20_event67,Event 20과 Event 67 모두 제외,48,35,13,"1,3,7,10,15,40,44,47,49,52,53,57,64",False,False,normal_event_start_to_end|report_date_minus_7d_to_report_date,7.0,7.0,7.0,0.99504,1.0,1.0,1003,1008.0,1008,70
