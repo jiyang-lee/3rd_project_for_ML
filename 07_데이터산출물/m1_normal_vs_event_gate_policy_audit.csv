@@ -1,0 +1,17 @@
+﻿dataset,final_class,rows,substation_count,window_policies,coverage_min,coverage_median,overlap_rows
+reference_pre_event_all,activity,47,19,activity_pre_7d,0.9950396825396826,1.0,4
+reference_pre_event_all,fault,62,27,fault_pre_7d,0.9950396825396826,1.0,7
+reference_pre_event_all,normal,35,22,normal_event_7d,1.0,1.0,0
+reference_pre_event_all,task,37,21,task_pre_7d,1.0,1.0,27
+reference_low_overlap_hybrid,activity,47,19,activity_pre_7d,0.9950396825396826,1.0,4
+reference_low_overlap_hybrid,fault,62,27,fault_pre_7d,0.9950396825396826,1.0,7
+reference_low_overlap_hybrid,normal,35,22,normal_event_7d,1.0,1.0,0
+reference_low_overlap_hybrid,task,41,22,task_post_7d,0.9821428571428572,1.0,4
+strict_no_overlap,activity,46,19,activity_post_7d|activity_pre_7d,0.9950396825396826,1.0,0
+strict_no_overlap,fault,55,26,fault_pre_7d,0.9950396825396826,1.0,0
+strict_no_overlap,normal,35,22,normal_event_7d,1.0,1.0,0
+strict_no_overlap,task,37,22,task_post_7d,0.9821428571428572,1.0,0
+low_overlap_only,activity,43,19,activity_pre_7d,0.9950396825396826,1.0,0
+low_overlap_only,fault,55,26,fault_pre_7d,0.9950396825396826,1.0,0
+low_overlap_only,normal,35,22,normal_event_7d,1.0,1.0,0
+low_overlap_only,task,37,22,task_post_7d,0.9821428571428572,1.0,0

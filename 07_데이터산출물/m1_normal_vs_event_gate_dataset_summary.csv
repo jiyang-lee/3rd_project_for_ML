@@ -1,0 +1,6 @@
+﻿dataset,evaluation_rows,normal_rows,event_rows,fault_rows,task_rows,activity_rows,substation_count,event_overlap_rows,coverage_min,coverage_median,train_candidate_normal_rows,note
+reference_pre_event_all,181,35,146,62,37,47,33,38,0.9950396825396826,1.0,0,evaluation dataset
+reference_low_overlap_hybrid,185,35,150,62,41,47,33,15,0.9821428571428572,1.0,0,evaluation dataset
+strict_no_overlap,173,35,138,55,37,46,33,0,0.9821428571428572,1.0,0,evaluation dataset
+low_overlap_only,170,35,135,55,37,43,33,0,0.9821428571428572,1.0,0,evaluation dataset
+train_normal_expanded,181,35,146,62,37,47,33,38,0.9950396825396826,1.0,70,reference_pre_event_all evaluation; candidate normal is train-fold only and compact13 only
