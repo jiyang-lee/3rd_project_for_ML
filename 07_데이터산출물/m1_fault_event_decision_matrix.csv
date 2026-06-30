@@ -1,0 +1,4 @@
+﻿dataset_id,rows,normal_rows,positive_rows,contains_event34,contains_event67,dummy_balanced_accuracy_mean,logistic_balanced_accuracy_mean,balanced_accuracy_lift_vs_dummy,logistic_precision_mean,logistic_recall_mean,logistic_f1_mean,logistic_roc_auc_mean,threshold05_false_positive_rate,threshold05_false_negative_rate,unknown_fault_rows,incomplete_training_metadata_rows
+fault_event_known_only,65,35,30,False,True,0.5,0.5363492063492064,0.03634920634920635,0.5022222222222222,0.5171428571428571,0.4823976023976025,0.5304761904761905,0.45714285714285713,0.5,0,4
+fault_event_with_unknown34,66,35,31,True,True,0.5,0.4166666666666667,-0.08333333333333331,0.33428571428571424,0.319047619047619,0.3230769230769231,0.37482993197278913,0.4857142857142857,0.6774193548387096,1,4
+fault_event_no_event67,65,35,30,True,False,0.5,0.4303571428571429,-0.06964285714285712,0.3580952380952381,0.4,0.3737062937062937,0.3966269841269841,0.5428571428571428,0.6,1,4

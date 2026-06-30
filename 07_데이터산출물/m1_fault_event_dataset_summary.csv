@@ -1,0 +1,4 @@
+﻿dataset_id,rows,normal_rows,positive_rows,positive_event_ids,contains_event20,contains_event34,contains_event67,contains_event69,unknown_fault_rows,incomplete_training_metadata_rows,min_coverage_rate,median_coverage_rate
+fault_event_known_only,65,35,30,1|3|5|6|7|10|11|13|15|23|24|29|32|36|37|38|40|44|45|47|49|52|53|57|60|62|63|64|65|67,False,False,True,False,0,4,0.9950396825396826,1.0
+fault_event_with_unknown34,66,35,31,1|3|5|6|7|10|11|13|15|23|24|29|32|34|36|37|38|40|44|45|47|49|52|53|57|60|62|63|64|65|67,False,True,True,False,1,4,0.9950396825396826,1.0
+fault_event_no_event67,65,35,30,1|3|5|6|7|10|11|13|15|23|24|29|32|34|36|37|38|40|44|45|47|49|52|53|57|60|62|63|64|65,False,True,False,False,1,4,0.9950396825396826,1.0
