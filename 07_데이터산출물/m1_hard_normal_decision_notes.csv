@@ -1,0 +1,14 @@
+﻿note_key,value,interpretation
+final_decision,특정 substation/window에 FP가 몰려 추가 검토 필요,hard normal이 일부 substation에 2건 이상 몰려 있어 설비별 정상 패턴 차이를 확인해야 한다.
+normal_label_policy,keep,회사 제공 normal 라벨은 삭제하거나 재라벨링하지 않는다.
+normal_rows,35,normal 35건이 audit에 모두 포함됐다.
+hard_normal_count,8,main compact13 계열에서 하나 이상 FP가 난 normal 수다.
+high_severity_count,0,locked와 fold-selected compact13 둘 다 FP인 normal 수다.
+medium_severity_count,8,둘 중 하나만 FP인 normal 수다.
+expanded154_fp_count,7,expanded154에서도 FP였던 normal 수다.
+locked_compact13_fp_count,2,locked compact13 FP normal 수다.
+fold_selected_compact13_fp_count,6,fold-selected compact13 FP normal 수다.
+max_substation_hard_count,2,한 substation 안에서 발견된 hard normal 최대 건수다.
+concentrated_substations,11,hard normal이 2건 이상 나온 substation 목록이다.
+hard_to_positive_z_distance,0.788847130817187,compact13 z-score 평균 기준 hard normal과 positive의 거리다.
+hard_to_true_negative_z_distance,0.32965848710408757,compact13 z-score 평균 기준 hard normal과 true negative normal의 거리다.
