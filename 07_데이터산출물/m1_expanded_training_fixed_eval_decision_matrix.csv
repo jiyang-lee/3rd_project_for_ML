@@ -1,0 +1,6 @@
+﻿criterion,reference_value,expanded_value,delta,pass,final_decision
+balanced_accuracy_not_drop_over_0_02,0.8285714285714285,0.85,0.021428571428571463,True,expanded_compact13_candidate
+recall_not_drop_over_0_05,0.7142857142857143,0.7857142857142857,0.0714285714285714,True,expanded_compact13_candidate
+fpr_not_worse_over_0_05,0.05714285714285714,0.08571428571428572,0.028571428571428574,True,expanded_compact13_candidate
+sensitivity_stable_without_19_68,0.8419913419913421,0.8625541125541125,0.02056277056277045,True,expanded_compact13_candidate
+hard_normal_35_48_not_worse,0.0,0.0,0.0,True,expanded_compact13_candidate
