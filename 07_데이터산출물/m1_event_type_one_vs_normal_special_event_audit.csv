@@ -1,0 +1,9 @@
+﻿event_id,scope,present_in_audit,flag_column,flag_value,treatment,report_policy
+20,fault_metadata,True,event20_low_coverage_flag,True,fault low coverage flag,kept as audit metadata; not silently relabeled
+34,fault_metadata,True,event34_unknown_flag,True,fault unknown label flag,kept as audit metadata; not silently relabeled
+69,fault_metadata,True,event69_unknown_training_end_missing_flag,True,fault unknown label and missing training end flag,kept as audit metadata; not silently relabeled
+67,fault_metadata,True,event67_long_anomaly_flag,True,fault long anomaly flag,kept as audit metadata; not silently relabeled
+19,normal_hard_metadata,True,hard_normal_tag,review_required_normal,normal label kept with hard/review metadata,normal label unchanged; tag retained for interpretation
+68,normal_hard_metadata,True,hard_normal_tag,review_required_normal,normal label kept with hard/review metadata,normal label unchanged; tag retained for interpretation
+35,normal_hard_metadata,True,hard_normal_tag,hard_normal_metadata,normal label kept with hard/review metadata,normal label unchanged; tag retained for interpretation
+48,normal_hard_metadata,True,hard_normal_tag,hard_normal_metadata,normal label kept with hard/review metadata,normal label unchanged; tag retained for interpretation
