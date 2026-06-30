@@ -1,0 +1,9 @@
+.venv/
+.codex/
+.agents/
+
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+
+05_데이터셋/PreDist/predist_dataset.zip

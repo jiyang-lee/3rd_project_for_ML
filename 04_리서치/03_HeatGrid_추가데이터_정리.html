@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HeatGrid 추가 데이터 후보 정리</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --panel: #fffdf8;
+      --line: #d8cfbf;
+      --text: #1f1a14;
+      --muted: #6a5c4d;
+      --accent: #8a4b14;
+      --accent-soft: #f2e3d3;
+      --essential: #b2411f;
+      --supplemental: #3a6b5b;
+      --domestic: #21578a;
+      --global: #6a3f8f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: linear-gradient(180deg, #efe7da 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .hero,
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(71, 50, 28, 0.08);
+    }
+
+    .hero {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lede {
+      margin-top: 14px;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fbf7f1;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .panel {
+      padding: 22px;
+      margin-top: 18px;
+    }
+
+    .note-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .note-list li + li {
+      margin-top: 8px;
+    }
+
+    .table-wrap {
+      margin-top: 16px;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1080px;
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e8e0d3;
+      border-right: 1px solid #eee6da;
+      vertical-align: top;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    th {
+      background: #f7f1e8;
+      font-size: 0.95rem;
+      color: #4a3e31;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .b-essential {
+      background: #f8ddd6;
+      color: var(--essential);
+    }
+
+    .b-supplemental {
+      background: #dceee7;
+      color: var(--supplemental);
+    }
+
+    .b-domestic {
+      background: #dceaf8;
+      color: var(--domestic);
+    }
+
+    .b-global {
+      background: #ece0f7;
+      color: var(--global);
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .foot {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        padding: 20px 14px 40px;
+      }
+
+      .hero,
+      .panel {
+        padding: 18px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>HeatGrid 추가 데이터 후보 정리</h1>
+      <p class="lede">
+        HeatGrid 단독 관점에서 <strong>PreDist</strong>를 중심 학습셋으로 유지하되, 접근 제한이 있거나
+        실사용 시 API 요청이 필요한 데이터는 제외하고, 브라우저에서 바로 접근 가능한 공개 데이터만 추렸다.
+        목적은 학습셋, 수요/영향도, 공급망/인프라, 운영 리스크 보강 데이터를 한눈에 검토하는 것이다.
+      </p>
+      <div class="meta">
+        <span class="chip">작성 기준일: 2026-06-20</span>
+        <span class="chip">산출 형식: 정적 HTML</span>
+        <span class="chip">포함 기준: 공개 접근 가능 + 직접 링크 가능</span>
+        <span class="chip">제외 기준: 접근 제한 + API 키/요청 필요</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>정리 기준</h2>
+      <ul class="note-list">
+        <li>포함: Zenodo, Mendeley Data, 일반 공개 웹페이지, 공공데이터포털의 직접 다운로드형 파일데이터</li>
+        <li>제외: 연구자 문의가 필요한 제한 데이터, 활용신청·인증키가 필요한 OpenAPI, 런타임 호출 전제 데이터</li>
+        <li>분류 규칙: HeatGrid 설명과 운영 판단 정확도에 직접 기여하면 <strong>필수 요소</strong>, 일반화 검증·배경 보강 성격이면 <strong>보강 요소</strong></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>1. 필수 요소</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>우선도</th>
+              <th>카테고리</th>
+              <th>한 줄 소개</th>
+              <th>데이터명</th>
+              <th>출처</th>
+              <th>링크</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge b-global">해외</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>학습셋</td>
+              <td>다중 기계실 이상탐지, 고장 리드타임 추정, 우선순위화 실험의 중심이 되는 라벨 시계열 데이터셋이다.</td>
+              <td>PreDist Dataset</td>
+              <td class="source">Zenodo</td>
+              <td><a href="https://zenodo.org/records/17522255" target="_blank" rel="noreferrer">PreDist Dataset - Zenodo</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>수요/영향도</td>
+              <td>주소 단위 열 사용량으로 기계실 이상이 실제로 얼마나 큰 열 수요에 영향을 주는지 가중치를 줄 수 있다.</td>
+              <td>한국지역난방공사_주소별 지역난방 사용량 정보</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15127129/fileData.do" target="_blank" rel="noreferrer">주소별 지역난방 사용량 정보</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>수요/영향도</td>
+              <td>건물 용도와 주소를 함께 제공해 기계실 고장이 어떤 유형의 수요처에 연결되는지 설명 근거로 쓸 수 있다.</td>
+              <td>한국지역난방공사_건물별 지역난방 공급현황 정보</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15090340/fileData.do" target="_blank" rel="noreferrer">건물별 지역난방 공급현황 정보</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>수요/영향도</td>
+              <td>지사별 공급구역과 허가세대수를 제공해 권역 중요도와 공급 영향 규모를 정량화할 수 있다.</td>
+              <td>한국지역난방공사_지역난방 공급구역 및 허가세대수 현황</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15151478/fileData.do" target="_blank" rel="noreferrer">지역난방 공급구역 및 허가세대수 현황</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>공급망/인프라</td>
+              <td>지사별 열수송관 길이와 연도 정보로 권역별 관로 규모와 공급망 부담을 운영 우선순위 설명에 연결할 수 있다.</td>
+              <td>한국지역난방공사_지역별 열수송관 현황</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15038673/fileData.do" target="_blank" rel="noreferrer">지역별 열수송관 현황</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-essential">필수 요소</span></td>
+              <td>운영 리스크</td>
+              <td>굴착공사 신고와 사업자 처리 현황은 외부 공사로 인한 관로 위험을 운영 우선순위 점수에 반영할 수 있게 해 준다.</td>
+              <td>열수송관 굴착공사 신고 및 집단에너지 사업자 처리 현황</td>
+              <td class="source">공공데이터포털 / 한국에너지공단</td>
+              <td><a href="https://www.data.go.kr/data/15086265/fileData.do" target="_blank" rel="noreferrer">열수송관 굴착공사 처리 현황</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2. 보강 요소</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>우선도</th>
+              <th>카테고리</th>
+              <th>한 줄 소개</th>
+              <th>데이터명</th>
+              <th>출처</th>
+              <th>링크</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge b-global">해외</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>학습셋 보강</td>
+              <td>서브스테이션 SCADA 기반 실제 운전 패턴을 제공해 PreDist 기반 모델의 일반화 검증 데이터로 적합하다.</td>
+              <td>XAI4HEAT SCADA Dataset 2024</td>
+              <td class="source">Mendeley Data</td>
+              <td><a href="https://data.mendeley.com/datasets/2mwc6x6kwb/1" target="_blank" rel="noreferrer">XAI4HEAT SCADA Dataset 2024</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-global">해외</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>수요/부하 패턴</td>
+              <td>네트워크 총 열부하와 공급 온도 시계열을 제공해 계절성, 부하 급증, 네트워크 수준 리스크를 설명할 수 있다.</td>
+              <td>Network Data of the District Heating System for the city of Flensburg from 2020-2024</td>
+              <td class="source">Zenodo</td>
+              <td><a href="https://zenodo.org/records/17177421" target="_blank" rel="noreferrer">Flensburg District Heating Network Data</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-global">해외</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>수요/부하 패턴</td>
+              <td>주거형 지역난방 네트워크의 표준 부하 프로파일을 제공해 합성 시나리오나 기준선 설계에 유용하다.</td>
+              <td>Standard load profiles for district heating networks</td>
+              <td class="source">Zenodo</td>
+              <td><a href="https://zenodo.org/records/15064368" target="_blank" rel="noreferrer">Standard load profiles for district heating networks</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>수요/부하 패턴</td>
+              <td>지사별 시간대 열공급량으로 국내 권역의 시간별 부하 패턴과 피크 특성을 보강할 수 있다.</td>
+              <td>한국지역난방공사_지사별 시간대별 열공급량</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15099319/fileData.do" target="_blank" rel="noreferrer">지사별 시간대별 열공급량</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>수요/부하 패턴</td>
+              <td>지역별 전력·가스·지역난방 사용량 비교가 가능해 지역 수요 구조와 보조 설명 지표로 쓰기 좋다.</td>
+              <td>한국지역난방공사_지역별 에너지 사용량 정보</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/15140303/fileData.do" target="_blank" rel="noreferrer">지역별 에너지 사용량 정보</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>공급망/인프라</td>
+              <td>지사별 공급 현황은 서비스 범위와 공급망 규모를 빠르게 설명하는 한국형 인프라 개요 자료다.</td>
+              <td>한국지역난방공사 지역난방공급현황 정보</td>
+              <td class="source">공공데이터포털 / 한국지역난방공사</td>
+              <td><a href="https://www.data.go.kr/data/3070435/fileData.do" target="_blank" rel="noreferrer">지역난방공급현황 정보</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>공급망/인프라</td>
+              <td>전국 집단에너지 사업 운영현황을 통해 HeatGrid를 한국형 확장 가능한 서비스로 설명할 때 근거가 된다.</td>
+              <td>한국에너지공단_집단에너지사업 운영현황 정보</td>
+              <td class="source">공공데이터포털 / 한국에너지공단</td>
+              <td><a href="https://www.data.go.kr/data/15032291/fileData.do" target="_blank" rel="noreferrer">집단에너지사업 운영현황 정보</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge b-domestic">국내</span></td>
+              <td><span class="badge b-supplemental">보강 요소</span></td>
+              <td>공급망/인프라</td>
+              <td>보급 통계는 공급세대수, 사업자수, 열 생산·판매량을 한 번에 보여줘 시장성과 적용 범위 설명에 적합하다.</td>
+              <td>한국에너지공단_집단에너지 보급통계</td>
+              <td class="source">공공데이터포털 / 한국에너지공단</td>
+              <td><a href="https://www.data.go.kr/data/15085935/fileData.do" target="_blank" rel="noreferrer">집단에너지 보급통계</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>3. 제외한 대표 데이터와 이유</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>데이터명</th>
+              <th>출처</th>
+              <th>제외 이유</th>
+              <th>링크</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dataset of smart heat and water meter data with accompanying building characteristics</td>
+              <td class="source">Aalborg University / VBN</td>
+              <td>연구자에게 직접 연락해야 접근 가능한 제한 데이터라 이번 목록에서 제외했다.</td>
+              <td><a href="https://vbn.aau.dk/en/datasets/dataset-of-smart-heat-and-water-meter-data-with-accompanying-buil/" target="_blank" rel="noreferrer">Aalborg restricted dataset</a></td>
+            </tr>
+            <tr>
+              <td>기상청_지상(종관, ASOS) 시간자료 조회서비스</td>
+              <td class="source">공공데이터포털 / 기상청</td>
+              <td>OpenAPI 기반 조회 서비스로 인증키와 요청 구성이 필요해 제외했다.</td>
+              <td><a href="https://www.data.go.kr/data/15057210/openapi.do" target="_blank" rel="noreferrer">ASOS 시간자료 조회서비스</a></td>
+            </tr>
+            <tr>
+              <td>기상청_단기예보 조회서비스</td>
+              <td class="source">공공데이터포털 / 기상청</td>
+              <td>런타임 예보 조회가 전제되는 API 서비스라 이번 정적 공개 데이터 목록에서 제외했다.</td>
+              <td><a href="https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15084084" target="_blank" rel="noreferrer">단기예보 조회서비스</a></td>
+            </tr>
+            <tr>
+              <td>기상청_기상특보 조회서비스</td>
+              <td class="source">공공데이터포털 / 기상청</td>
+              <td>특보 확인 자체는 유용하지만 실사용 시 API 요청이 필요해 제외했다.</td>
+              <td><a href="https://www.data.go.kr/data/15000415/openapi.do" target="_blank" rel="noreferrer">기상특보 조회서비스</a></td>
+            </tr>
+            <tr>
+              <td>한국천문연구원_특일 정보</td>
+              <td class="source">공공데이터포털 / 한국천문연구원</td>
+              <td>공휴일 보정에는 유용하지만 OpenAPI 호출형 서비스라 제외했다.</td>
+              <td><a href="https://www.data.go.kr/data/15012690/openapi.do" target="_blank" rel="noreferrer">특일 정보</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
