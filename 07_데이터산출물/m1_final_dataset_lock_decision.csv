@@ -1,0 +1,7 @@
+﻿criterion,reference_value,expanded_value,delta,pass,note,final_decision
+balanced_accuracy_no_drop,0.8285714285714285,0.85,0.021428571428571463,True,expanded_both fixed eval balanced accuracy is not lower than reference,expanded_compact13_dataset_lock
+recall_no_drop,0.7142857142857143,0.7857142857142857,0.0714285714285714,True,positive recall is not lower than reference,expanded_compact13_dataset_lock
+fpr_delta_within_0_05,0.05714285714285714,0.08571428571428572,0.028571428571428574,True,false positive rate increase stays within 0.05,expanded_compact13_dataset_lock
+hard_normal_35_48_not_fp,0.0,0.0,0.0,True,Event 35/48 did not become FP,expanded_compact13_dataset_lock
+new_fp_event28_interpretable,0.0,1.0,1.0,True,Event 28 has no disturbance/fault overlap and is kept as hard normal candidate,expanded_compact13_dataset_lock
+fn_label_quality_passed,0.0,0.0,0.0,True,FN events 15/40/52 have sufficient coverage and known fault labels,expanded_compact13_dataset_lock
