@@ -1,0 +1,3 @@
+﻿dataset_id,rows,normal_rows,positive_rows,positive_event_ids,event20_included,event34_included,event67_included,event69_included,base_feature_count,expanded_feature_count,coverage_min,coverage_median
+strict_no_event20,49,35,14,"1,3,7,10,15,40,44,47,49,52,53,57,64,67",False,False,True,False,70,154,0.9950396825396826,1.0
+strict_no_event20_no_event67,48,35,13,"1,3,7,10,15,40,44,47,49,52,53,57,64",False,False,False,False,70,154,0.9950396825396826,1.0
