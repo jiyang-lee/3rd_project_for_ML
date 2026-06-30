@@ -10,4 +10,6 @@ dependencies = [
     "nbclient>=0.10.0",
     "matplotlib>=3.11.0",
     "scikit-learn>=1.9.0",
+    "lightgbm>=4.6.0",
+    "xgboost>=3.3.0",
 ]

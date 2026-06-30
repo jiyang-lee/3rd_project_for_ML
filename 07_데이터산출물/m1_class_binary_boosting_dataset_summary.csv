@@ -1,0 +1,8 @@
+﻿dataset,target_class,policy_variant,rows,normal_rows,target_rows,substation_count,target_substation_count,target_overlap_rows,coverage_min,coverage_median,window_policies
+fault_no_overlap,fault,no_overlap,90,35,55,31,26,0,0.9950396825396826,1.0,fault_pre_7d
+task_pre_all,task,pre_all,72,35,37,30,21,27,1.0,1.0,task_pre_7d
+task_post_all,task,post_all,76,35,41,31,22,4,0.9821428571428572,1.0,task_post_7d
+task_no_overlap,task,no_overlap,72,35,37,31,22,0,0.9821428571428572,1.0,task_post_7d
+activity_pre_all,activity,pre_all,82,35,47,27,19,4,0.9950396825396826,1.0,activity_pre_7d
+activity_post_all,activity,post_all,81,35,46,27,19,5,0.9950396825396826,1.0,activity_post_7d
+activity_no_overlap,activity,no_overlap,81,35,46,27,19,0,0.9950396825396826,1.0,activity_post_7d|activity_pre_7d
