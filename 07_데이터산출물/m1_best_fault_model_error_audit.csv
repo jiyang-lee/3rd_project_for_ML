@@ -1,0 +1,14 @@
+outer_fold,source_id,final_class,source_event_id,fault_event_id,disturbance_row_id,substation_id,window_policy,y_true,prediction_type,candidate_id,threshold,probability_fault,prediction,error_type
+1,normal_0028,normal,28.0,,,7,normal_event_7d,0,selected_nested,ensemble_top3_interpretable,0.4,0.7429945483094071,1,false_positive_normal
+1,normal_0033,normal,33.0,,,3,normal_event_7d,0,selected_nested,ensemble_top3_interpretable,0.4,0.4763303522601771,1,false_positive_normal
+1,disturbance_0006,fault,,,6.0,3,fault_pre_7d,1,selected_nested,ensemble_top3_interpretable,0.4,0.31788651363311043,0,false_negative_fault
+3,normal_0002,normal,2.0,,,9,normal_event_7d,0,selected_nested,compact20_main__base__random_forest_balanced_depth2,0.5,0.5226691815700522,1,false_positive_normal
+3,normal_0016,normal,16.0,,,17,normal_event_7d,0,selected_nested,compact20_main__base__random_forest_balanced_depth2,0.5,0.513060658851409,1,false_positive_normal
+3,normal_0019,normal,19.0,,,8,normal_event_7d,0,selected_nested,compact20_main__base__random_forest_balanced_depth2,0.5,0.6992565767695863,1,false_positive_normal
+4,normal_0027,normal,27.0,,,12,normal_event_7d,0,selected_nested,compact20_main__base__extra_trees_balanced_depth4,0.45,0.5759858442987098,1,false_positive_normal
+4,normal_0056,normal,56.0,,,2,normal_event_7d,0,selected_nested,compact20_main__base__extra_trees_balanced_depth4,0.45,0.4623500552617034,1,false_positive_normal
+4,normal_0068,normal,68.0,,,13,normal_event_7d,0,selected_nested,compact20_main__base__extra_trees_balanced_depth4,0.45,0.6364082487557985,1,false_positive_normal
+5,normal_0014,normal,14.0,,,26,normal_event_7d,0,selected_nested,compact13__missing_indicator__logistic_balanced_C1.0,0.4,0.43987749156017003,1,false_positive_normal
+5,normal_0059,normal,59.0,,,22,normal_event_7d,0,selected_nested,compact13__missing_indicator__logistic_balanced_C1.0,0.4,0.5286143191047081,1,false_positive_normal
+5,disturbance_0010,fault,11.0,11.0,10.0,4,fault_pre_7d,1,selected_nested,compact13__missing_indicator__logistic_balanced_C1.0,0.4,1.3945258441500918e-06,0,false_negative_fault
+5,disturbance_0130,fault,13.0,13.0,130.0,24,fault_pre_7d,1,selected_nested,compact13__missing_indicator__logistic_balanced_C1.0,0.4,0.28347677906066293,0,false_negative_fault

@@ -1,0 +1,5 @@
+pool_role,candidate_type,label,y,rows,substation_count,coverage_min,coverage_median,feature_set,feature_count,model_recipe
+expansion_candidate,candidate_normal,candidate_normal,0,70,35,0.953373015873016,1.0,compact13_overlap,13,expanded_compact13_logistic_balanced_threshold_0.6
+expansion_candidate,weak_positive,efd_possible,1,12,8,1.0,1.0,compact13_overlap,13,expanded_compact13_logistic_balanced_threshold_0.6
+fixed_eval,fixed_eval,efd_possible,1,14,14,0.9950396825396826,1.0,compact13_overlap,13,expanded_compact13_logistic_balanced_threshold_0.6
+fixed_eval,fixed_eval,normal,0,35,22,1.0,1.0,compact13_overlap,13,expanded_compact13_logistic_balanced_threshold_0.6

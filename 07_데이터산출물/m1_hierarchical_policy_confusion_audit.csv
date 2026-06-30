@@ -1,0 +1,13 @@
+known_class,final_operational_label,rows,audit_type
+activity,activity_context_or_candidate_signal,47,known_class_by_final_label
+fault,normal_or_monitor,6,known_class_by_final_label
+fault,predictive_fault_risk,49,known_class_by_final_label
+normal,normal_or_monitor,28,known_class_by_final_label
+normal,predictive_fault_risk,7,known_class_by_final_label
+task,maintenance_context_event,42,known_class_by_final_label
+activity,True,47,known_class_by_review_required
+fault,False,47,known_class_by_review_required
+fault,True,8,known_class_by_review_required
+normal,False,33,known_class_by_review_required
+normal,True,2,known_class_by_review_required
+task,False,42,known_class_by_review_required

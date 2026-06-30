@@ -1,0 +1,5 @@
+final_operational_label,priority,definition,operator_action
+predictive_fault_risk,1,Fault predictive gate is positive. Treat as risk-first routing; context tags remain secondary.,Review risk evidence and prepare inspection/dispatch candidate.
+maintenance_context_event,2,"Fault gate is not positive, task post-event context classifier is positive.","Use as maintenance/work context, not advance prediction."
+activity_context_or_candidate_signal,3,"Activity pre/post candidate signal is positive, but activity is missingness-sensitive and not locked as predictive.",Treat as review-required context/candidate signal.
+normal_or_monitor,4,No selected fault/task/activity signal is positive.,Monitor normally.
