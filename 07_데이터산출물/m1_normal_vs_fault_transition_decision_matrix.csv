@@ -1,0 +1,8 @@
+﻿criterion,baseline_value,candidate_value,delta,pass,blocking_for_transition,note,final_decision
+dummy_lift_clear,0.5,0.7952380952380952,0.2952380952380952,True,True,compact13 fault_event balanced accuracy lift over dummy must be at least 0.05,keep_pre_event_main_fault_event_auxiliary
+recall_not_far_below_pre_event,0.7857142857142857,0.7333333333333333,-0.05238095238095242,True,True,fault_event recall should not fall more than 0.10 below locked pre_event recall,keep_pre_event_main_fault_event_auxiliary
+fp_concentrated_in_known_hard_normals,0.5,0.4,-0.09999999999999998,False,True,FP should be absent or mostly concentrated in Event 27/28/68 hard normal tags,keep_pre_event_main_fault_event_auxiliary
+candidate_normal_train_not_harmful,0.730952380952381,0.7952380952380952,0.06428571428571417,True,True,train-only candidate normal should not materially degrade compact13 main result,keep_pre_event_main_fault_event_auxiliary
+compact13_close_to_expanded154,0.6309523809523809,0.7952380952380952,0.16428571428571426,True,True,compact13 should be close to expanded154 on the fault_event main dataset,keep_pre_event_main_fault_event_auxiliary
+event34_sensitivity_policy,0.7952380952380952,0.8119815668202766,0.01674347158218137,True,False,"if unstable, keep Event 34 excluded and sensitivity-only",keep_pre_event_main_fault_event_auxiliary
+event67_sensitivity_policy,0.7952380952380952,0.7876847290640394,-0.007553366174055776,True,False,"if unstable, keep Event 67 as long-anomaly sensitivity tag",keep_pre_event_main_fault_event_auxiliary
