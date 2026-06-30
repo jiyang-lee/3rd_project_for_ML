@@ -1,0 +1,8 @@
+﻿decision_item,decision_value,note
+final_decision,일부 event는 review_required_normal로 후속 수동 검토,normal 라벨은 변경하지 않고 hard normal audit 태그만 추가
+normal_label_policy,keep_company_normal_label,회사 제공 normal label 유지
+hard_normal_event_count,8,"Event 35, 48, 8, 19, 27, 33, 39, 68"
+review_required_count,2,coverage 또는 disturbance 또는 positive-like 과다 기준
+hard_normal_metadata_count,6,"정상 라벨 유지, 모델 해석용 hard normal tag 유지"
+keep_normal_count,0,추가 tag 없이 normal 유지
+substation11_event35_48,reviewed,같은 substation에서 반복 FP가 발생해 별도 비교 PNG 생성
