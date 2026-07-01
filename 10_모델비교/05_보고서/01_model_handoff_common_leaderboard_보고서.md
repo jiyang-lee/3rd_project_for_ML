@@ -2,9 +2,9 @@
 
 ## 개요
 
-Desktop의 모델 handoff ZIP 4개를 `10_모델비교` 아래에 모으고, 같은 공통 평가셋에서 실제 로딩과 예측이 가능한 모델만 `normal vs pre_event` 조기탐지 리더보드에 포함했다.
+모델 handoff ZIP 5개를 `10_모델비교` 아래에 모으고, 같은 공통 평가셋에서 실제 로딩과 예측이 가능한 모델만 `normal vs pre_event` 조기탐지 리더보드에 포함했다.
 
-이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, 순수 anomaly 모델은 target이 달라 성능 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
+이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, `task_gate`, `activity_gate`, 순수 anomaly 모델은 target이 달라 pre_event 성능 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
 
 ## 무엇을 했는지
 
@@ -13,9 +13,9 @@ Desktop의 모델 handoff ZIP 4개를 `10_모델비교` 아래에 모으고, 같
 | 평가 row | 112 |
 | normal row | 65 |
 | pre_event row | 47 |
-| 발견 모델 수 | 14 |
-| 로딩 성공 모델 수 | 14 |
-| 리더보드 포함 모델 수 | 3 |
+| 발견 모델 수 | 18 |
+| 로딩 성공 모델 수 | 18 |
+| 리더보드 포함 모델 수 | 4 |
 
 ## 왜 이렇게 했는지
 
@@ -23,7 +23,7 @@ Desktop의 모델 handoff ZIP 4개를 `10_모델비교` 아래에 모으고, 같
 
 ```mermaid
 flowchart LR
-  A["Desktop ZIP 4개"] --> B["10_모델비교/00_원본ZIP"]
+  A["handoff ZIP 5개"] --> B["10_모델비교/00_원본ZIP"]
   B --> C["10_모델비교/01_압축해제"]
   C --> D["model registry"]
   D --> E["joblib load audit"]
@@ -44,20 +44,19 @@ flowchart LR
 
 | owner | model_file | task_family | evaluation_basis | threshold | rows | balanced_accuracy | precision | recall | f1 | normal_fpr | tp | fp | fn | tn |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ljy2 | m1_m2_system_stratified_pre_event_candidate.joblib | early_detection | eligible_existing_common_dataset | 0.4000 | 112 | 0.9923 | 0.9792 | 1.0000 | 0.9895 | 0.0154 | 47 | 1 | 0 | 64 |
 | hsj | 09_lightgbm_model.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 112 | 0.6025 | 0.4878 | 0.8511 | 0.6202 | 0.6462 | 40 | 42 | 7 | 23 |
 | hsj | 07_random_forest_baseline.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 112 | 0.5740 | 0.4600 | 0.9787 | 0.6259 | 0.8308 | 46 | 54 | 1 | 11 |
 | nyj | baseline_model.joblib | early_detection | eligible_regenerated_raw_7d_features | 0.7500 | 112 | 0.5354 | 0.5000 | 0.2553 | 0.3380 | 0.1846 | 12 | 12 | 35 | 53 |
 
 ## Front Gate 리더보드
 
-Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 90개이며, 이 표에는 같은 7일 event-row 실행 단위로 평가 가능한 모델만 포함했다.
+Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 90개이며, 이 표에는 target이 같은 `fault_gate` 모델만 포함했다. `pre_event`, `task_gate`, `activity_gate`는 점수가 계산 가능해도 목적이 달라 제외했다.
 
 | owner | model_file | task_family | evaluation_basis | threshold | rows | balanced_accuracy | precision | recall | f1 | normal_fpr | tp | fp | fn | tn |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ljy | m1_fault_gate_rf_depth3.joblib | front_gate | eligible_locked_front_gate_oof_predictions | 0.5000 | 90 | 0.8455 | 0.8750 | 0.8909 | 0.8829 | 0.2000 | 49 | 7 | 6 | 28 |
-| hsj | 09_lightgbm_model.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 90 | 0.6922 | 0.7692 | 0.7273 | 0.7477 | 0.3429 | 40 | 12 | 15 | 23 |
-| hsj | 07_random_forest_baseline.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 90 | 0.6299 | 0.6842 | 0.9455 | 0.7939 | 0.6857 | 52 | 24 | 3 | 11 |
-| nyj | baseline_model.joblib | early_detection | eligible_regenerated_raw_7d_features | 0.7500 | 90 | 0.5909 | 1.0000 | 0.1818 | 0.3077 | 0.0000 | 10 | 0 | 45 | 35 |
+| ljy2 | m1_fault_gate_rf_depth3.joblib | front_gate | eligible_locked_front_gate_oof_predictions | 0.5000 | 90 | 0.8455 | 0.8750 | 0.8909 | 0.8829 | 0.2000 | 49 | 7 | 6 | 28 |
 
 ## 제외 모델 요약
 
@@ -74,12 +73,17 @@ Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 90
 | osj | risk_model_best.joblib | risk | excluded_schema_mismatch | unsupported_adapter_features:132 | 313 | 252 | anomaly_consensus_count; anomaly_criticality; anomaly_ensemble_score; anomaly_event_label; anomaly_score; configuration_type__is__missing; configuration_type__is__sh; configuration_type__is__sh_dhw; configuration_type__is__sh_dhw_with_sub_circuits; configuration_type__is__sh_with_buffer_tank; configuration_type__is__sh_with_sub_circuits; day_of_week; day_of_year; dhw_supply_temperature_gap__last; dhw_supply_temperature_gap__last__roll24h_delta; dhw_supply_temperature_gap__last__roll24h_mean; dhw_supply_temperature_gap__last__roll3d_delta; dhw_supply_temperature_gap__last__roll3d_mean; dhw_supply_temperature_gap__last__roll3d_slope; dhw_supply_temperature_gap__last__roll7d_delta |
 | nyj | hybrid_model.joblib | early_detection | excluded_execution_unit_mismatch | multi_window_k_rule_requires_window_sequence | 85 | 85 | dT_max; dT_mean; dT_min; dT_slope; dT_std; dev_max; dev_mean; dev_min; dev_slope; dev_std; dhw_dev_max; dhw_dev_mean; dhw_dev_min; dhw_dev_slope; dhw_dev_std; dhw_strat_max; dhw_strat_mean; dhw_strat_min; dhw_strat_slope; dhw_strat_std |
 | ljy | m1_fault_gate_rf_depth3.joblib | front_gate | excluded_task_family | target_mismatch:front_gate | 13 | 0 |  |
+| ljy2 | m1_activity_gate_rf_depth3.joblib | activity_gate | excluded_task_family | target_mismatch:activity_gate | 13 | 0 |  |
+| ljy2 | m1_fault_gate_rf_depth3.joblib | front_gate | excluded_task_family | target_mismatch:front_gate | 13 | 0 |  |
+| ljy2 | m1_task_gate_rf_depth3.joblib | task_gate | excluded_task_family | target_mismatch:task_gate | 13 | 0 |  |
 
 ## Front Gate 제외 모델 요약
 
 | owner | model_file | task_family | eligibility | reason | required_feature_count | threshold_used |
 | --- | --- | --- | --- | --- | --- | --- |
+| hsj | 07_random_forest_baseline.joblib | pre_event_candidate | excluded_task_family | target_mismatch:pre_event_candidate | 354 | 0.5000 |
 | hsj | 08_isolation_forest.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 354 | 0.5000 |
+| hsj | 09_lightgbm_model.joblib | pre_event_candidate | excluded_task_family | target_mismatch:pre_event_candidate | 354 | 0.5000 |
 | osj | isolation_forest.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 195 | 0.9900 |
 | osj | mahalanobis_ledoitwolf.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 195 | 0.9900 |
 | osj | multi_window_raw_12h.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 131 | 0.9900 |
@@ -87,8 +91,12 @@ Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 90
 | osj | multi_window_raw_3h.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 131 | 0.9900 |
 | osj | standard_scaler.joblib | anomaly | excluded_task_family | target_mismatch:anomaly | 195 | 0.9900 |
 | osj | leadtime_model_best.joblib | leadtime | excluded_task_family | target_mismatch:leadtime | 454 | 0.5000 |
-| osj | risk_model_best.joblib | risk | excluded_schema_mismatch | unsupported_adapter_features:132 | 313 | 0.0500 |
-| nyj | hybrid_model.joblib | early_detection | excluded_execution_unit_mismatch | multi_window_k_rule_requires_window_sequence | 85 | 0.7500 |
+| osj | risk_model_best.joblib | risk | excluded_task_family | target_mismatch:risk | 313 | 0.0500 |
+| nyj | baseline_model.joblib | early_detection | excluded_task_family | target_mismatch:early_detection | 55 | 0.7500 |
+| nyj | hybrid_model.joblib | early_detection | excluded_task_family | target_mismatch:early_detection | 85 | 0.7500 |
+| ljy2 | m1_activity_gate_rf_depth3.joblib | activity_gate | excluded_task_family | target_mismatch:activity_gate | 13 | 0.5000 |
+| ljy2 | m1_task_gate_rf_depth3.joblib | task_gate | excluded_task_family | target_mismatch:task_gate | 13 | 0.5000 |
+| ljy2 | m1_m2_system_stratified_pre_event_candidate.joblib | early_detection | excluded_task_family | target_mismatch:early_detection | 13 | 0.4000 |
 
 ## 검증
 

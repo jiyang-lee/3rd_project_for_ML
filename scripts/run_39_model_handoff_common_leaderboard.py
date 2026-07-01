@@ -17,11 +17,12 @@ import pandas as pd
 from sklearn.metrics import balanced_accuracy_score, confusion_matrix, precision_recall_fscore_support
 
 
-OWNERS = {
-    "hsj": Path(r"C:\Users\Admin\Desktop\model_handoff_hsj.zip"),
-    "osj": Path(r"C:\Users\Admin\Desktop\model_handoff_osj.zip"),
-    "nyj": Path(r"C:\Users\Admin\Desktop\model_handoff_nyj.zip"),
-    "ljy": Path(r"C:\Users\Admin\Desktop\model_handoff_ljy.zip"),
+OWNER_ZIP_NAMES = {
+    "hsj": "model_handoff_hsj.zip",
+    "osj": "model_handoff_osj.zip",
+    "nyj": "model_handoff_nyj.zip",
+    "ljy": "model_handoff_ljy.zip",
+    "ljy2": "model_total_handoff_ljy2.zip",
 }
 
 FEATURE_KEYS = {
@@ -67,6 +68,21 @@ def paths() -> dict[str, Path]:
 PATHS = paths()
 
 
+def owner_zip_sources() -> dict[str, list[Path]]:
+    return {
+        "hsj": [Path(r"C:\Users\Admin\Desktop\model_handoff_hsj.zip")],
+        "osj": [Path(r"C:\Users\Admin\Desktop\model_handoff_osj.zip")],
+        "nyj": [Path(r"C:\Users\Admin\Desktop\model_handoff_nyj.zip")],
+        "ljy": [Path(r"C:\Users\Admin\Desktop\model_handoff_ljy.zip")],
+        "ljy2": [
+            PATHS["root"] / "08_모델산출물" / "heatgrid_project_total_handoff_ljy2.zip",
+            PATHS["zip"] / "model_total_handoff_ljy2.zip",
+            Path(r"C:\Users\Admin\Desktop\heatgrid_project_total_handoff_ljy2.zip"),
+            Path(r"C:\Users\Admin\Desktop\model_total_handoff_ljy2.zip"),
+        ],
+    }
+
+
 def ensure_dirs() -> None:
     for key in ["zip", "extract", "dataset", "notebook", "out", "report"]:
         PATHS[key].mkdir(parents=True, exist_ok=True)
@@ -94,8 +110,9 @@ def import_run36():
 
 def copy_and_extract_zips() -> pd.DataFrame:
     rows = []
-    for owner, source in OWNERS.items():
-        target_zip = PATHS["zip"] / source.name
+    for owner, sources in owner_zip_sources().items():
+        source = next((candidate for candidate in sources if candidate.exists()), sources[0])
+        target_zip = PATHS["zip"] / OWNER_ZIP_NAMES[owner]
         owner_extract = PATHS["extract"] / owner
         if not source.exists():
             rows.append(
@@ -111,7 +128,8 @@ def copy_and_extract_zips() -> pd.DataFrame:
             )
             continue
 
-        shutil.copy2(source, target_zip)
+        if source.resolve() != target_zip.resolve():
+            shutil.copy2(source, target_zip)
         if owner_extract.exists():
             shutil.rmtree(owner_extract)
         owner_extract.mkdir(parents=True, exist_ok=True)
@@ -238,6 +256,10 @@ def infer_task_family(owner: str, model_path: Path) -> str:
         return "leadtime"
     if "priority" in text:
         return "priority"
+    if "activity_gate" in text:
+        return "activity_gate"
+    if "task_gate" in text:
+        return "task_gate"
     if "front_gate" in text or "fault_gate" in text:
         return "front_gate"
     if "isolation" in text or "mahalanobis" in text or "anomaly" in text:
@@ -253,7 +275,7 @@ def infer_task_family(owner: str, model_path: Path) -> str:
 
 def discover_models() -> pd.DataFrame:
     rows = []
-    for owner in OWNERS:
+    for owner in owner_zip_sources():
         owner_root = PATHS["extract"] / owner
         for model_path in sorted(owner_root.rglob("*.joblib")):
             meta = extract_metadata(model_path)
@@ -594,7 +616,7 @@ def evaluate_front_gate_models(registry: pd.DataFrame, dataset: pd.DataFrame) ->
     schema_rows = []
     leaderboard_rows = []
     prediction_rows = []
-    include_families = {"front_gate", "pre_event_candidate", "early_detection", "risk"}
+    include_families = {"front_gate"}
 
     for _, row in registry.iterrows():
         model_path = PATHS["base"] / row["artifact_path"]
@@ -678,7 +700,11 @@ def evaluate_front_gate_models(registry: pd.DataFrame, dataset: pd.DataFrame) ->
             continue
 
         try:
-            if task_family == "front_gate" and row["owner"] == "ljy":
+            if (
+                task_family == "front_gate"
+                and row["owner"] in {"ljy", "ljy2"}
+                and row["model_file"] == "m1_fault_gate_rf_depth3.joblib"
+            ):
                 locked = pd.read_csv(PATHS["source_front_gate_dataset"])
                 locked = locked.loc[
                     locked["dataset"].eq("fault_no_overlap")
@@ -1056,9 +1082,9 @@ def write_report(results: dict[str, pd.DataFrame], front_results: dict[str, pd.D
 
 ## 개요
 
-Desktop의 모델 handoff ZIP 4개를 `10_모델비교` 아래에 모으고, 같은 공통 평가셋에서 실제 로딩과 예측이 가능한 모델만 `normal vs pre_event` 조기탐지 리더보드에 포함했다.
+모델 handoff ZIP 5개를 `10_모델비교` 아래에 모으고, 같은 공통 평가셋에서 실제 로딩과 예측이 가능한 모델만 `normal vs pre_event` 조기탐지 리더보드에 포함했다.
 
-이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, 순수 anomaly 모델은 target이 달라 성능 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
+이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, `task_gate`, `activity_gate`, 순수 anomaly 모델은 target이 달라 pre_event 성능 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
 
 ## 무엇을 했는지
 
@@ -1077,7 +1103,7 @@ Desktop의 모델 handoff ZIP 4개를 `10_모델비교` 아래에 모으고, 같
 
 ```mermaid
 flowchart LR
-  A["Desktop ZIP 4개"] --> B["10_모델비교/00_원본ZIP"]
+  A["handoff ZIP 5개"] --> B["10_모델비교/00_원본ZIP"]
   B --> C["10_모델비교/01_압축해제"]
   C --> D["model registry"]
   D --> E["joblib load audit"]
@@ -1100,7 +1126,7 @@ flowchart LR
 
 ## Front Gate 리더보드
 
-Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 {int(front_summary.get("evaluation_rows", 0)) if front_summary else 0}개이며, 이 표에는 같은 7일 event-row 실행 단위로 평가 가능한 모델만 포함했다.
+Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 {int(front_summary.get("evaluation_rows", 0)) if front_summary else 0}개이며, 이 표에는 target이 같은 `fault_gate` 모델만 포함했다. `pre_event`, `task_gate`, `activity_gate`는 점수가 계산 가능해도 목적이 달라 제외했다.
 
 {md_table(front_leaderboard, ["owner", "model_file", "task_family", "evaluation_basis", "threshold", "rows", "balanced_accuracy", "precision", "recall", "f1", "normal_fpr", "tp", "fp", "fn", "tn"] if not front_leaderboard.empty else None)}
 
