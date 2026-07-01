@@ -1,0 +1,7 @@
+﻿scope,manufacturer,rows,normal_rows,pre_event_rows,substation_count,coverage_median,excluded_rows
+all_index,M1,64,35,29,31,1.0,3
+all_index,M2,56,30,26,28,1.0,5
+main_eligible,M1,61,35,26,31,1.0,0
+main_eligible,M2,51,30,21,28,1.0,0
+sensitivity_no_long_anomaly,M1,60,35,25,31,1.0,0
+sensitivity_no_long_anomaly,M2,51,30,21,28,1.0,0
