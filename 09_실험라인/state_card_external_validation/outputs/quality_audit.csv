@@ -1,0 +1,9 @@
+﻿check,pass,evidence
+state_card_required_columns_present,True,missing=[]
+non_fault_no_priority_score,True,priority score only populated on fault branch
+m1_full_gate_rows_included,True,179
+m1_m2_lightgbm_holdout_rows,True,rows=2
+xai4heat_no_label_metrics,True,{'external_runtime_validation_only': 5}
+xai4heat_missing_features_recorded,True,"{True: 50, False: 15}"
+predist_original_not_modified,True,clean
+xai4heat_original_not_modified,True,clean
