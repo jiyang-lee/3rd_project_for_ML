@@ -1,0 +1,6 @@
+﻿example_type,source_id,substation_id,primary_state,secondary_tags,fault_probability,task_probability,activity_probability,risk_probability,priority_score,priority_tier,review_flag,why_reason
+normal_example,disturbance_0006,3,normal,,0.3088963517078588,,,,,,False,no gate crossed threshold
+fault_priority_example,disturbance_0059,12,fault,,0.8588261948444582,,,0.9854038165062012,99.19720990784108,high,False,fault gate crossed threshold; fault has runtime priority
+task_example,disturbance_0017_task_post_1d,5,task,,,0.9850830176099816,,,,,False,task gate crossed threshold
+activity_example,disturbance_0002_activity_pre_1d,3,activity,,,,0.9655708742588184,,,,False,activity gate crossed threshold
+review_example,normal_0019,8,fault,,0.7113840972792242,0.1500466375555041,0.1440690325945554,,,,True,fault gate crossed threshold; fault has runtime priority

@@ -1,0 +1,8 @@
+﻿component,input,feature_or_signal,model_or_rule,threshold,output,note
+fault_gate,recent 7d window,compact13,RandomForest depth3,0.50,fault probability,front gate; threshold sensitive
+task_gate,task_post_1d window,compact13,RandomForest depth3,0.50,task state flag,"state/work detector, not pre-event"
+activity_gate,activity_pre_1d window,compact13,RandomForest depth3,0.50,activity flag,pre/post policy still monitored
+conflict_resolver,three gate outputs,gate probabilities,deterministic rule,,primary_state,fault priority over task/activity
+fault_pre_event_gate,fault branch only,compact13_overlap,LogisticRegression balanced,0.60,risk_probability,locked in report 28
+leadtime_audit,fault branch with risk >=0.6,anchor probabilities,stable crossing rule,0.60,leadtime label,not a regression model
+priority_policy,fault branch with risk >=0.6,risk|leadtime|group,policy score,,priority_score/tier,baseline_28 weights

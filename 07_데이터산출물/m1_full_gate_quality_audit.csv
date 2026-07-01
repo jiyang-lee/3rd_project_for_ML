@@ -1,0 +1,13 @@
+﻿check,pass,detail
+m1_only_scope,True,all generated report text scoped to M1
+non_target_manufacturer_absent,True,
+normal_35_retained,True,35
+special_fault_events_retained,True,20/34/67/69 in priority/audit source
+hard_normal_metadata_retained,True,19|35|48|68
+gate_group_overlap_zero,True,source metrics report group_overlap_count 0
+pre_event_lock_unchanged,True,fault_pre_event_gate_v1_locked_for_M1
+conflict_resolver_deterministic,True,"{'fault': 56, 'activity': 47, 'task': 42, 'normal': 34}"
+priority_only_for_fault_primary,True,non-fault rows have blank priority_score
+runtime_schema_examples_present,True,schema and examples generated
+source_zip_metadata_not_modified_by_script,True,script writes only 07 outputs and 06 notebook
+png_outputs_exist,True,m1_full_gate_runtime_flow.png|m1_full_gate_conflict_resolution.png

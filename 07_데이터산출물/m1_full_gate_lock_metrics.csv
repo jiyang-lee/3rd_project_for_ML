@@ -1,0 +1,11 @@
+﻿gate,target_class,dataset,feature_set,model,threshold,rows,balanced_accuracy,macro_f1,normal_precision,normal_recall,normal_f1,target_precision,target_recall,target_f1,normal_fpr,tn,fp,fn,tp
+fault_gate,fault,fault_no_overlap,compact13,random_forest_balanced_depth3,0.45,90,0.8350649350649351,0.8434782608695652,0.8666666666666667,0.7428571428571429,0.8,0.85,0.9272727272727272,0.8869565217391304,0.2571428571428571,26,9,4,51
+fault_gate,fault,fault_no_overlap,compact13,random_forest_balanced_depth3,0.5,90,0.8454545454545455,0.8472385428907168,0.8235294117647058,0.8,0.8115942028985508,0.875,0.8909090909090909,0.8828828828828829,0.2,28,7,6,49
+fault_gate,fault,fault_no_overlap,compact13,random_forest_balanced_depth3,0.55,90,0.790909090909091,0.7828571428571429,0.7,0.8,0.7466666666666667,0.86,0.7818181818181819,0.819047619047619,0.2,28,7,12,43
+fault_gate,fault,fault_no_overlap,compact13,random_forest_balanced_depth3,0.6,90,0.7649350649350649,0.7428890821016023,0.625,0.8571428571428571,0.7228915662650602,0.8809523809523809,0.6727272727272727,0.7628865979381443,0.14285714285714285,30,5,18,37
+task_gate,task,task_post_1d,compact13,random_forest_balanced_depth3,0.4,77,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,42
+task_gate,task,task_post_1d,compact13,random_forest_balanced_depth3,0.5,77,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,42
+task_gate,task,task_post_1d,compact13,random_forest_balanced_depth3,0.6,77,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,42
+activity_gate,activity,activity_pre_1d,compact13,random_forest_balanced_depth3,0.4,82,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,47
+activity_gate,activity,activity_pre_1d,compact13,random_forest_balanced_depth3,0.5,82,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,47
+activity_gate,activity,activity_pre_1d,compact13,random_forest_balanced_depth3,0.6,82,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,35,0,0,47

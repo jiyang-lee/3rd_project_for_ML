@@ -1,0 +1,4 @@
+﻿gate,target_class,dataset,feature_set,model,threshold,rows,normal_rows,target_rows,substation_count,target_overlap_rate,coverage_min,balanced_accuracy,target_recall,normal_fpr
+fault_gate,fault,fault_no_overlap,compact13,random_forest_balanced_depth3,0.5,90,35,55,,0.0,,0.8454545454545455,0.8909090909090909,0.2
+task_gate,task,task_post_1d,compact13,random_forest_balanced_depth3,0.5,77,35,42,31.0,0.0476190476190476,1.0,1.0,1.0,0.0
+activity_gate,activity,activity_pre_1d,compact13,random_forest_balanced_depth3,0.5,82,35,47,27.0,0.0425531914893617,0.9652777777777778,1.0,1.0,0.0

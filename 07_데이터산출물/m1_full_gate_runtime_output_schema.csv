@@ -1,0 +1,15 @@
+﻿field_name,type,plain_korean_meaning,source,required
+sample_id,string,runtime 판단 단위 ID,window/gate input,True
+substation_id,integer,기계실 ID,input metadata,True
+window_start,datetime,최근 window 시작,feature window,True
+window_end,datetime,최근 window 끝,feature window,True
+fault_probability,float,fault gate 확률,RandomForest fault gate,True
+task_probability,float,task gate 확률,RandomForest task gate,True
+activity_probability,float,activity gate 확률,RandomForest activity gate,True
+primary_state,string,최종 상태 normal/fault/task/activity,conflict resolver,True
+secondary_tags,string,동시에 켜진 보조 tag,conflict resolver,False
+review_flag,boolean,수동 검토 필요 여부,conflict resolver,True
+risk_probability,float,fault pre_event 위험확률,LogisticRegression pre_event gate,False
+priority_score,float,출동 우선순위 점수,policy score,False
+priority_tier,string,high/medium/low/monitor,policy score,False
+why_reason,string,최종 판단 이유,runtime rules,True
