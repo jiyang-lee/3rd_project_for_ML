@@ -1,0 +1,11 @@
+﻿dataset_id,gate,class,precision,recall,f1,support
+m2_activity_pre_1d_external,activity_gate,negative_or_normal,1.0,1.0,1.0,30
+m2_activity_pre_1d_external,activity_gate,target,1.0,1.0,1.0,27
+m2_fault_internal_efd_possible_sensitivity,fault_pre_event_gate,negative_or_normal,0.47058823529411764,0.5714285714285714,0.5161290322580645,14
+m2_fault_internal_efd_possible_sensitivity,fault_pre_event_gate,target,0.7272727272727273,0.64,0.6808510638297872,25
+m2_fault_no_overlap_external,fault_gate,negative_or_normal,0.7567567567567568,0.9333333333333333,0.835820895522388,30
+m2_fault_no_overlap_external,fault_gate,target,0.9473684210526315,0.8,0.8674698795180723,45
+m2_normal_vs_efd_possible_external,fault_pre_event_gate,negative_or_normal,0.5714285714285714,0.4,0.47058823529411764,30
+m2_normal_vs_efd_possible_external,fault_pre_event_gate,target,0.47058823529411764,0.64,0.5423728813559322,25
+m2_task_post_1d_external,task_gate,negative_or_normal,1.0,1.0,1.0,30
+m2_task_post_1d_external,task_gate,target,1.0,1.0,1.0,42

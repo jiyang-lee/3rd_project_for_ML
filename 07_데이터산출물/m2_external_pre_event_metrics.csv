@@ -1,0 +1,3 @@
+﻿dataset_id,gate,rows,positive_rows,normal_or_negative_rows,threshold,balanced_accuracy,precision,recall,f1,normal_fpr,tn,fp,fn,tp
+m2_fault_internal_efd_possible_sensitivity,fault_pre_event_gate,39,25,14,0.6,0.6057142857142856,0.7272727272727273,0.64,0.6808510638297872,0.42857142857142855,8,6,9,16
+m2_normal_vs_efd_possible_external,fault_pre_event_gate,55,25,30,0.6,0.52,0.47058823529411764,0.64,0.5423728813559322,0.6,12,18,9,16

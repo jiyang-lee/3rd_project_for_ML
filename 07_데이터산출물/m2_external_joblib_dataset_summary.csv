@@ -1,0 +1,6 @@
+﻿dataset_id,gate,rows_total_before_filter,rows_coverage_eligible,positive_rows,negative_or_normal_rows,coverage_min,coverage_median,substation_count,threshold
+m2_fault_no_overlap_external,fault_gate,75,75,45,30,0.9990079365079365,1.0,34,0.5
+m2_task_post_1d_external,task_gate,72,72,42,30,0.9583333333333334,1.0,34,0.5
+m2_activity_pre_1d_external,activity_gate,57,57,27,30,0.9791666666666666,1.0,23,0.5
+m2_normal_vs_efd_possible_external,fault_pre_event_gate,55,55,25,30,0.998015873015873,1.0,28,0.6
+m2_fault_internal_efd_possible_sensitivity,fault_pre_event_gate,39,39,25,14,0.998015873015873,1.0,23,0.6

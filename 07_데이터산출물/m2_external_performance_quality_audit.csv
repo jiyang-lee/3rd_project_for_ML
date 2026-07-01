@@ -1,0 +1,9 @@
+﻿check,pass,evidence
+M1 joblib files exist,True,08_모델산출물\m1_fault_gate_rf_depth3.joblib|08_모델산출물\m1_task_gate_rf_depth3.joblib|08_모델산출물\m1_activity_gate_rf_depth3.joblib|08_모델산출물\m1_fault_pre_event_logistic.joblib
+M2 metadata used as external labels,True,"normal_events=30, disturbances=163, faults=40"
+M2 not used for training,True,joblib.load only; no fit call in validation path
+coverage filter applied,True,coverage_min=0.9583
+PreDist ZIP/metadata unmodified,True,clean
+external predictions generated,True,rows=298
+feature set is compact13_overlap 13 columns,True,13 features
+notebook/report outputs created,True,written by script
