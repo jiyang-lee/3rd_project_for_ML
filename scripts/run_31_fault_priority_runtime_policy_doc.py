@@ -115,6 +115,11 @@ def markdown_table(df: pd.DataFrame, columns: list[str], float_digits: int = 3) 
     return "\n".join(lines)
 
 
+def markdown_image(name: str) -> str:
+    path = (OUT / name).resolve().as_posix()
+    return f"![{name}]({path})"
+
+
 def build_glossary() -> pd.DataFrame:
     rows = [
         ("M1", "이번 분석에서 사용한 대상 제조사 데이터 범위", "비대상 제조사와 섞지 않기 위한 기준"),
@@ -368,7 +373,7 @@ def build_report(
     priority = inputs["priority"].copy()
     tier_counts = priority["priority_tier"].value_counts().to_dict()
     image_lines = "\n".join(
-        f"![{name}](./{name})"
+        markdown_image(name)
         for name in [
             PNG_FLOW.name,
             PNG_SCORE_COMPONENTS.name,

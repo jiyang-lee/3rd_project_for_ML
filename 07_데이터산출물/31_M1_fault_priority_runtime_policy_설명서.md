@@ -40,10 +40,10 @@ flowchart LR
     F --> G["priority_score / tier / why_reason"]
 ```
 
-![m1_fault_priority_runtime_flow.png](./m1_fault_priority_runtime_flow.png)
-![m1_fault_priority_score_components.png](./m1_fault_priority_score_components.png)
-![m1_fault_group_leadtime_boxplot.png](./m1_fault_group_leadtime_boxplot.png)
-![m1_dispatch_priority_weight_sensitivity_top10_overlap.png](./m1_dispatch_priority_weight_sensitivity_top10_overlap.png)
+![m1_fault_priority_runtime_flow.png](C:/3rd_Project/HeatGridAgent/07_데이터산출물/m1_fault_priority_runtime_flow.png)
+![m1_fault_priority_score_components.png](C:/3rd_Project/HeatGridAgent/07_데이터산출물/m1_fault_priority_score_components.png)
+![m1_fault_group_leadtime_boxplot.png](C:/3rd_Project/HeatGridAgent/07_데이터산출물/m1_fault_group_leadtime_boxplot.png)
+![m1_dispatch_priority_weight_sensitivity_top10_overlap.png](C:/3rd_Project/HeatGridAgent/07_데이터산출물/m1_dispatch_priority_weight_sensitivity_top10_overlap.png)
 
 ## 3. 현재 잠긴 기준
 | 항목 | 현재 기준 |
