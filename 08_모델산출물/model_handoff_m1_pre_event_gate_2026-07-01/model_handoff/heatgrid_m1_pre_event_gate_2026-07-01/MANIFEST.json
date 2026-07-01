@@ -1,0 +1,33 @@
+{
+  "package": "heatgrid_m1_pre_event_gate_2026-07-01",
+  "branch_source": "main",
+  "target_usage": "Fault internal pre_event gate joblib handoff",
+  "selected_component": "fault_pre_event_gate",
+  "source_model_path": "08_모델산출물/m1_fault_pre_event_logistic.joblib",
+  "runtime_position": "after fault_gate primary_state=fault",
+  "excludes": [
+    "fault_gate",
+    "task_gate",
+    "activity_gate",
+    "leadtime_policy",
+    "priority_policy",
+    "bulk score CSV outputs"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2307,
+      "sha256": "b8faddcfcd13b637fa902516c1e6b87e27b45d449bf180bd2c27619163ed669c"
+    },
+    {
+      "path": "pre_event_gate/m1_fault_pre_event_metadata.json",
+      "bytes": 2940,
+      "sha256": "ce102369702521ff50d9241eebc800b5318f4ca57d5fdc53e42bfafc704be1c2"
+    },
+    {
+      "path": "pre_event_gate/m1_fault_pre_event_logistic.joblib",
+      "bytes": 3101,
+      "sha256": "bcdd4ee7b38179592ef6fef520facdb0a796dc60886e1d1fbd41968349668631"
+    }
+  ]
+}
