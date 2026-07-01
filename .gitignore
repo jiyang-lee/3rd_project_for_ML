@@ -7,3 +7,4 @@ __pycache__/
 .ipynb_checkpoints/
 
 05_데이터셋/PreDist/predist_dataset.zip
+05_데이터셋/SCADA/XAI4HEAT/*.csv

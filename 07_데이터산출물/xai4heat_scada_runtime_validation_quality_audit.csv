@@ -1,0 +1,14 @@
+﻿check,pass,evidence
+M1 internal joblib artifacts created,True,08_모델산출물\m1_fault_gate_rf_depth3.joblib|08_모델산출물\m1_task_gate_rf_depth3.joblib|08_모델산출물\m1_activity_gate_rf_depth3.joblib|08_모델산출물\m1_fault_pre_event_logistic.joblib
+33 full gate metric reproduced,True,threshold 0.5 balanced accuracy matched m1_full_gate_lock_metrics.csv
+joblib reload prediction identical,True,max diff=4.4408920985e-16
+XAI4HEAT raw CSV available,True,5/5
+XAI4HEAT raw CSV ignored by git,True,clean_or_ignored
+schema mapping audit created,True,07_데이터산출물\xai4heat_scada_schema_mapping_audit.csv
+feature coverage audit created,True,07_데이터산출물\xai4heat_scada_feature_coverage_audit.csv
+missing-feature gates blocked,True,{'blocked_by_missing_features': 20}
+external label metrics not computed,True,XAI4HEAT label metrics are intentionally not computed
+PreDist ZIP/metadata unmodified,True,clean
+non-target manufacturer strings absent in generated outputs,True,not_found
+Event 20/34/69/67 metadata retained,True,special event notes are written to report
+Event 19/68/35/48 hard normal metadata retained,True,hard normal notes are written to report

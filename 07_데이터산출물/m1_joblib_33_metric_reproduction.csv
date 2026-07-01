@@ -1,0 +1,4 @@
+﻿component,threshold,rows,positive_rows,normal_rows,balanced_accuracy,precision,recall,f1,normal_fpr,tn,fp,fn,tp,prediction_source
+recomputed_33_fault_gate,0.5,90,55,35,0.8454545454545455,0.875,0.8909090909090909,0.8828828828828829,0.2,28,7,6,49,m1_full_gate_lock_predictions.csv
+recomputed_33_task_gate,0.5,77,42,35,1.0,1.0,1.0,1.0,0.0,35,0,0,42,m1_full_gate_lock_predictions.csv
+recomputed_33_activity_gate,0.5,82,47,35,1.0,1.0,1.0,1.0,0.0,35,0,0,47,m1_full_gate_lock_predictions.csv

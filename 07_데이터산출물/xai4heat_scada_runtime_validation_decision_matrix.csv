@@ -1,0 +1,5 @@
+﻿decision_item,status,evidence,final_decision
+joblib_reload,pass,4/4 identical,joblib_ready_but_scada_schema_blocked
+xai4heat_download,pass,5/5 files available,joblib_ready_but_scada_schema_blocked
+xai4heat_feature_coverage,partial,required feature availability rate=0.7692,joblib_ready_but_scada_schema_blocked
+xai4heat_label_metrics,not_applicable,"external dataset is used for runtime compatibility, not class-label performance",joblib_ready_but_scada_schema_blocked

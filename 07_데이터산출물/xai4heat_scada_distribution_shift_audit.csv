@@ -1,0 +1,14 @@
+﻿feature,m1_mean,m1_std,xai4heat_mean,xai4heat_non_null_count,mean_shift_zscore,shift_status
+outdoor_temperature__last_12h_mean_minus_prev_12h_mean,0.6708001766088301,2.8212630664438505,-0.7583333333333343,5,-0.5065580473300423,computed
+outdoor_temperature__last_6h_mean_minus_prev_6h_mean,-0.3448048356078801,2.70720698523277,0.45,5,0.2935884991222943,computed
+outdoor_temperature__last_minus_first,-0.6915933034579426,4.721557574412544,-4.82,5,-0.8743738970620758,computed
+p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean,-0.018360591482840284,3.771523981747468,7.241666666666665,5,1.9249585295718317,computed
+p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean,-0.35800842713680864,4.291920808130294,4.30952624252565,5,1.0875164939717967,computed
+p_net_meter_flow__last_1d_std_minus_prev_6d_std,-27.14641232734191,178.8329755025883,,0,,blocked_or_missing
+p_net_return_temperature__last_1d_mean_minus_prev_6d_mean,-0.3200533301675831,4.274470466532691,2.768044177813819,5,0.7224514784135039,computed
+p_return_gap__last_1d_mean_minus_prev_6d_mean,0.12651683928755195,2.372515015622415,1.5414820647118233,5,0.5963988493674776,computed
+p_return_gap__last_minus_first,0.22596736911038467,7.31316520396865,-0.26000000000000084,5,-0.06645103119599495,computed
+s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean,0.13074693350079802,5.64781136079919,5.804771773413782,5,1.0046413517448083,computed
+s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std,-0.916253930813766,2.8853445000109077,-0.8393788935278856,5,0.026643278570579628,computed
+s_hc1_supply_temperature_error__last_minus_first,-1.3439554935550309,11.998295329059694,,0,,blocked_or_missing
+s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean,0.12982362870139258,6.978794163183657,,0,,blocked_or_missing

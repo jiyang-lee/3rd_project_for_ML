@@ -1,0 +1,21 @@
+﻿file,gate,feature_set,runtime_status,probability,threshold,prediction,missing_feature_count,label_metric_available,label_metric_note
+L4_combined_data.csv,fault_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L4_combined_data.csv,task_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L4_combined_data.csv,activity_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L4_combined_data.csv,fault_pre_event_gate,compact13_overlap,blocked_by_missing_features,,0.6,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L8_combined_data.csv,fault_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L8_combined_data.csv,task_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L8_combined_data.csv,activity_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L8_combined_data.csv,fault_pre_event_gate,compact13_overlap,blocked_by_missing_features,,0.6,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L12_combined_data.csv,fault_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L12_combined_data.csv,task_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L12_combined_data.csv,activity_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L12_combined_data.csv,fault_pre_event_gate,compact13_overlap,blocked_by_missing_features,,0.6,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L17_combined_data.csv,fault_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L17_combined_data.csv,task_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L17_combined_data.csv,activity_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L17_combined_data.csv,fault_pre_event_gate,compact13_overlap,blocked_by_missing_features,,0.6,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L22_combined_data.csv,fault_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L22_combined_data.csv,task_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L22_combined_data.csv,activity_gate,compact13,blocked_by_missing_features,,0.5,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
+L22_combined_data.csv,fault_pre_event_gate,compact13_overlap,blocked_by_missing_features,,0.6,,3,False,XAI4HEAT has no fault/task/activity labels in this runtime validation
