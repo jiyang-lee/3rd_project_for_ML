@@ -1,0 +1,137 @@
+{
+  "package_id": "heatgrid_project_total_handoff_v1",
+  "package": "heatgrid_project_total_handoff_2026-07-01",
+  "created_date": "2026-07-01",
+  "source_commit_hash": "8ee028d6dd6b55c37866e199c3216bf423be7ff2",
+  "runtime_output": "state_card",
+  "front_gates": {
+    "fault_gate": {
+      "model_type": "RandomForestClassifier_depth3",
+      "feature_set": "compact13",
+      "features": [
+        "outdoor_temperature__last_12h_mean_minus_prev_12h_mean",
+        "outdoor_temperature__last_6h_mean_minus_prev_6h_mean",
+        "outdoor_temperature__last_minus_first",
+        "p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean",
+        "p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_net_meter_flow__last_1d_std_minus_prev_6d_std",
+        "p_net_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_minus_first",
+        "s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean",
+        "s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std",
+        "s_hc1_supply_temperature_error__last_minus_first",
+        "s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean"
+      ],
+      "threshold": 0.5,
+      "training_dataset_id": "fault_no_overlap",
+      "packaged_model_path": "front_gates/m1_fault_gate_rf_depth3.joblib"
+    },
+    "task_gate": {
+      "model_type": "RandomForestClassifier_depth3",
+      "feature_set": "compact13",
+      "features": [
+        "outdoor_temperature__last_12h_mean_minus_prev_12h_mean",
+        "outdoor_temperature__last_6h_mean_minus_prev_6h_mean",
+        "outdoor_temperature__last_minus_first",
+        "p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean",
+        "p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_net_meter_flow__last_1d_std_minus_prev_6d_std",
+        "p_net_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_minus_first",
+        "s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean",
+        "s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std",
+        "s_hc1_supply_temperature_error__last_minus_first",
+        "s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean"
+      ],
+      "threshold": 0.5,
+      "training_dataset_id": "task_post_1d",
+      "packaged_model_path": "front_gates/m1_task_gate_rf_depth3.joblib"
+    },
+    "activity_gate": {
+      "model_type": "RandomForestClassifier_depth3",
+      "feature_set": "compact13",
+      "features": [
+        "outdoor_temperature__last_12h_mean_minus_prev_12h_mean",
+        "outdoor_temperature__last_6h_mean_minus_prev_6h_mean",
+        "outdoor_temperature__last_minus_first",
+        "p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean",
+        "p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_net_meter_flow__last_1d_std_minus_prev_6d_std",
+        "p_net_return_temperature__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_1d_mean_minus_prev_6d_mean",
+        "p_return_gap__last_minus_first",
+        "s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean",
+        "s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std",
+        "s_hc1_supply_temperature_error__last_minus_first",
+        "s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean"
+      ],
+      "threshold": 0.5,
+      "training_dataset_id": "activity_pre_1d",
+      "packaged_model_path": "front_gates/m1_activity_gate_rf_depth3.joblib"
+    }
+  },
+  "pre_event_gate": {
+    "component": "m1_m2_system_stratified_pre_event_gate",
+    "role": "fault_internal_pre_event_gate_candidate",
+    "model_type": "lightgbm_depth3",
+    "loaded_object_type": "dict",
+    "feature_set": "common13",
+    "features": [
+      "outdoor_temperature__last_12h_mean_minus_prev_12h_mean",
+      "outdoor_temperature__last_6h_mean_minus_prev_6h_mean",
+      "outdoor_temperature__last_minus_first",
+      "p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean",
+      "p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean",
+      "p_net_meter_flow__last_1d_std_minus_prev_6d_std",
+      "p_net_return_temperature__last_1d_mean_minus_prev_6d_mean",
+      "p_return_gap__last_1d_mean_minus_prev_6d_mean",
+      "p_return_gap__last_minus_first",
+      "s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean",
+      "s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std",
+      "s_hc1_supply_temperature_error__last_minus_first",
+      "s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean"
+    ],
+    "feature_count": 13,
+    "fallback_threshold": 0.4,
+    "system_thresholds": {
+      "dhw_return": 0.4,
+      "dhw_storage": 0.6,
+      "dhw_storage_return": 0.7,
+      "dhw_supply": 0.4,
+      "heating_common_only": 0.6
+    },
+    "system_groups_reflected": [
+      "dhw_return",
+      "dhw_storage",
+      "dhw_storage_return",
+      "dhw_supply",
+      "heating_common_only"
+    ],
+    "manufacturer_scope": "M1+M2",
+    "source_model_path": "09_실험라인/m1_m2_system_stratified_pre_event/models/m1_m2_system_stratified_pre_event_candidate.joblib",
+    "packaged_model_path": "pre_event_gate_m1_m2_system/m1_m2_system_stratified_pre_event_candidate.joblib",
+    "status": "global_not_locked_aux_candidates_available",
+    "global_system_threshold_passed": false,
+    "system_aux_candidate_available": true
+  },
+  "runtime_rules": {
+    "front_gate_order": "fault/task/activity gates run in parallel",
+    "conflict_resolver": "fault has priority over task/activity; task/activity tie resolved by probability",
+    "pre_event_runs_when": "primary_state=fault",
+    "pre_event_positive_rule": "probability >= system-specific threshold when system group is known; otherwise fallback_threshold",
+    "priority_layer": "policy layer only, not included as ML joblib"
+  },
+  "included_reference_outputs": [
+    "runtime_policy/state_card_output_schema.csv",
+    "runtime_policy/state_card_rule_table.csv",
+    "runtime_policy/state_card_external_validation_decision_matrix.csv",
+    "runtime_policy/m1_m2_system_pre_event_decision_matrix.csv"
+  ],
+  "excluded_or_not_finalized": [
+    "old M1-only m1_fault_pre_event_logistic.joblib is not used as the total package pre_event model",
+    "priority score is not an ML model",
+    "XAI4HEAT is runtime/schema validation only, not external performance scoring"
+  ]
+}
