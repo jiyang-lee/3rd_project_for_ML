@@ -1,0 +1,15 @@
+﻿field_name,type,plain_korean_meaning,source,required
+substation_id,int,센서가 들어온 기계실 ID,runtime input,yes
+window_start,datetime,최근 7일 window 시작,runtime calculation,yes
+window_end,datetime,최근 7일 window 끝,runtime calculation,yes
+risk_probability,float,pre-event 위험확률,LogisticRegression,yes
+risk_prediction,int,threshold 0.6 이상 여부,risk_probability >= 0.6,yes
+fault_group,string,가장 가까운 해석용 고장군,fault group taxonomy,yes
+leadtime_label,string,고장군별 리드타임 성격,29번 stable lead-time audit,yes
+leadtime_urgency,float,출동 긴급도 점수,28번 priority logic,yes
+group_weight,float,고장군 보조 가중치,28번 group profile,yes
+priority_score,float,최종 정책 점수,0.55*risk + 0.30*leadtime + 0.15*group,yes
+priority_tier,string,high/medium/low/monitor,priority score and risk threshold,yes
+why_reason,string,사람에게 보여줄 판단 이유,runtime explanation,yes
+review_flag,bool,수동 검토 필요 여부,event flags and unknown label,yes
+recommended_action,string,권장 조치,priority tier and leadtime label,yes

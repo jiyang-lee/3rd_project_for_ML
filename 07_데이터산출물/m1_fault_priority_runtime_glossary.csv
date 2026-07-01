@@ -1,0 +1,18 @@
+﻿term,plain_korean_definition,why_it_matters
+M1,이번 분석에서 사용한 대상 제조사 데이터 범위,비대상 제조사와 섞지 않기 위한 기준
+fault,고장 기록 또는 고장 이벤트,이번 설명서는 fault만 다루고 task/activity는 제외
+pre_event,고장 보고 전에 센서 패턴에서 위험 신호가 보이는 구간,조기탐지 모델의 positive 개념
+runtime,실제로 10분 센서값이 들어올 때 적용되는 판단 흐름,분석 노트북이 아니라 운영 시나리오 관점
+7일 window,최근 7일 센서값을 묶은 계산 구간,feature 계산의 입력 단위
+compact13_overlap,모델이 쓰는 13개 요약 feature,"최근 변화, 온도 gap, setpoint 관련 신호 중심"
+LogisticRegression,현재 pre-event 위험확률을 내는 기준 모델,복잡한 모델보다 해석과 안정성을 우선
+risk_probability,pre-event 모델이 낸 위험 확률,priority score에서 가장 큰 비중
+threshold 0.6,위험 후보로 볼 확률 기준,0.6 이상이면 pre-event 후보
+stable crossing,한 번 넘은 뒤 가까운 시점에서도 계속 threshold를 넘는 시점,공식 리드타임 기준
+leadtime_urgency,리드타임을 출동 긴급도로 바꾼 값,짧을수록 긴급하게 처리
+fault_group,fault label을 운영 해석용으로 묶은 고장군,"예: pump_failure, leakage_water_loss"
+group_weight,고장군 빈도와 monitoring potential을 반영한 보조 점수,개별 위험확률을 뒤집지 않도록 낮은 비중
+priority_score,"risk, leadtime, group을 합친 정책 점수",ML 모델이 아니라 운영 정책 후보
+priority_tier,score를 high/medium/low/monitor로 나눈 단계,출동 우선순위 표시용
+review_flag,해석 주의가 필요한 이벤트 표시,"unknown, low coverage, long anomaly 등"
+policy v1 candidate,현재 데이터에서 설명 가능한 운영 후보,현장 비용/SLA 검증 전 최종 확정값은 아님

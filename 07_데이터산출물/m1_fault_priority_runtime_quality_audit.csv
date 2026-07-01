@@ -1,0 +1,13 @@
+﻿check,pass,detail
+required_glossary_terms_present,True,
+schema_required_columns_present,True,field_name|type|plain_korean_meaning|source|required
+examples_include_high,True,high|medium|monitor
+examples_include_monitor_or_review,True,monitor or review example exists
+priority_weight_matches_30_recommendation,True,0.55/0.3/0.15
+pre_event_lock_unchanged,True,fault_pre_event_gate_v1_locked_for_M1
+stable_leadtime_label_used,True,stable crossing and leadtime_label in report
+no_new_model_training,True,31 reads 28-30 outputs and creates docs/visuals
+m1_only_outputs,True,report explicitly scoped to M1
+markdown_image_targets_exist,True,
+source_zip_metadata_not_touched_by_script,True,
+non_target_manufacturer_absent,True,
