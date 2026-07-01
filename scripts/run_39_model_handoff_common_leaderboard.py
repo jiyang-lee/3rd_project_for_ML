@@ -662,12 +662,22 @@ def evaluate_front_gate_models(registry: pd.DataFrame, dataset: pd.DataFrame) ->
             threshold_used = DEFAULT_THRESHOLD
             threshold_source = "default_0.5"
 
+        same_pool_fit_candidate = (
+            row["owner"] == "ljy2"
+            and row["model_file"] == "m1_m2_system_stratified_pre_event_candidate.joblib"
+            and isinstance(model, dict)
+            and str(model.get("status", "")).startswith("global_not_locked")
+        )
+
         if task_family not in include_families:
             eligibility = "excluded_task_family"
             reason = f"target_mismatch:{task_family}"
         elif load_status != "loaded":
             eligibility = "excluded_load_failed"
             reason = load_error
+        elif same_pool_fit_candidate:
+            eligibility = "excluded_in_sample_candidate"
+            reason = "trained_on_same_standard_feature_pool_main_eligible_rows; use only as reference_not_ranked"
         elif multi_window_required:
             eligibility = "excluded_execution_unit_mismatch"
             reason = "multi_window_k_rule_requires_window_sequence"
@@ -1084,7 +1094,7 @@ def write_report(results: dict[str, pd.DataFrame], front_results: dict[str, pd.D
 
 모델 handoff ZIP 5개를 `10_모델비교` 아래에 모으고, 같은 공통 평가셋에서 실제 로딩과 예측이 가능한 모델만 `normal vs pre_event` 조기탐지 리더보드에 포함했다.
 
-이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, `task_gate`, `activity_gate`, 순수 anomaly 모델은 target이 달라 pre_event 성능 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
+이번 비교는 모델 목적이 다른 산출물을 억지로 한 순위에 넣지 않기 위해 보수적으로 진행했다. `leadtime`, `priority`, `front_gate`, `task_gate`, `activity_gate`, 순수 anomaly 모델은 target이 달라 pre_event 성능 순위에서 제외했다. 또한 `ljy2`의 system-stratified pre_event 후보는 같은 `standard_feature_pool.csv` main 평가 row로 fit된 candidate라 in-sample 점수로 보고 순위에서 제외했다. 공통 CSV에 feature가 없더라도 raw 7일 window에서 feature 계약을 정확히 재생성할 수 있는 모델은 별도 adapter로 평가했다.
 
 ## 무엇을 했는지
 
