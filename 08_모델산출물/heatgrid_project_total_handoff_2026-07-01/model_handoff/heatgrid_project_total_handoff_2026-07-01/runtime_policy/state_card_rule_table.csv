@@ -1,7 +1,0 @@
-﻿rule_id,component,condition,output,model_or_rule,note
-R1,front_gates,fault/task/activity gate를 병렬 적용,각 gate probability와 detected flag,"RandomForest depth3, threshold 0.5",task는 조기탐지가 아니라 상태/작업 감지
-R2,conflict_resolver,fault와 task/activity가 동시에 켜짐,"primary_state=fault, secondary_tags에 task/activity 보존",deterministic rule,운영 위험도가 높은 fault 우선
-R3,conflict_resolver,task와 activity만 동시에 켜짐,확률이 높은 쪽을 primary_state로 선택,probability comparison,둘 다 secondary tag에도 남김
-R4,fault_pre_event,primary_state=fault,pre_event_detected와 risk_probability,"pre_event model, threshold 0.6",fault branch에서만 계산
-R5,leadtime_priority,fault이고 risk_probability >= 0.6,"fault_group, leadtime_label, priority_score, priority_tier",29 stable crossing + 30 baseline policy,priority는 ML 모델이 아니라 정책 점수
-R6,external_runtime,외부 데이터에 라벨 또는 필수 feature가 없음,review_required 또는 not_available 사유 기록,availability rule,성능점수 대신 coverage/runtime 검증
