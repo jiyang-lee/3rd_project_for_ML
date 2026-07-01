@@ -15,7 +15,7 @@
 | pre_event row | 47 |
 | 발견 모델 수 | 18 |
 | 로딩 성공 모델 수 | 18 |
-| 리더보드 포함 모델 수 | 4 |
+| 리더보드 포함 모델 수 | 3 |
 
 ## 왜 이렇게 했는지
 
@@ -44,7 +44,6 @@ flowchart LR
 
 | owner | model_file | task_family | evaluation_basis | threshold | rows | balanced_accuracy | precision | recall | f1 | normal_fpr | tp | fp | fn | tn |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ljy2 | m1_m2_system_stratified_pre_event_candidate.joblib | early_detection | eligible_existing_common_dataset | 0.4000 | 112 | 0.9923 | 0.9792 | 1.0000 | 0.9895 | 0.0154 | 47 | 1 | 0 | 64 |
 | hsj | 09_lightgbm_model.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 112 | 0.6025 | 0.4878 | 0.8511 | 0.6202 | 0.6462 | 40 | 42 | 7 | 23 |
 | hsj | 07_random_forest_baseline.joblib | pre_event_candidate | eligible_regenerated_raw_7d_features | 0.5000 | 112 | 0.5740 | 0.4600 | 0.9787 | 0.6259 | 0.8308 | 46 | 54 | 1 | 11 |
 | nyj | baseline_model.joblib | early_detection | eligible_regenerated_raw_7d_features | 0.7500 | 112 | 0.5354 | 0.5000 | 0.2553 | 0.3380 | 0.1846 | 12 | 12 | 35 | 53 |
@@ -76,6 +75,7 @@ Front gate는 `normal=0`, `fault=1` 기준의 별도 평가다. 평가 row는 90
 | ljy2 | m1_activity_gate_rf_depth3.joblib | activity_gate | excluded_task_family | target_mismatch:activity_gate | 13 | 0 |  |
 | ljy2 | m1_fault_gate_rf_depth3.joblib | front_gate | excluded_task_family | target_mismatch:front_gate | 13 | 0 |  |
 | ljy2 | m1_task_gate_rf_depth3.joblib | task_gate | excluded_task_family | target_mismatch:task_gate | 13 | 0 |  |
+| ljy2 | m1_m2_system_stratified_pre_event_candidate.joblib | early_detection | excluded_in_sample_candidate | trained_on_same_standard_feature_pool_main_eligible_rows; use only as reference_not_ranked | 13 | 0 |  |
 
 ## Front Gate 제외 모델 요약
 
