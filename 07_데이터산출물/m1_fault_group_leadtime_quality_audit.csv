@@ -1,0 +1,16 @@
+﻿check,pass,detail
+input_exists_m1_fault_rolling_leadtime_summary.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_rolling_leadtime_summary.csv
+input_exists_m1_fault_rolling_leadtime_predictions.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_rolling_leadtime_predictions.csv
+input_exists_m1_fault_dispatch_priority_v1.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_dispatch_priority_v1.csv
+input_exists_m1_fault_group_priority_profile.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_group_priority_profile.csv
+input_exists_m1_fault_pre_event_v1_lock_decision.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_pre_event_v1_lock_decision.csv
+pre_event_lock_unchanged,True,decision=fault_pre_event_gate_v1_locked_for_M1; model=LogisticRegression(class_weight=balanced); threshold=0.6
+no_new_model_training,True,29 uses 28 prediction CSV outputs only
+event_audit_33_faults,True,rows=33
+one_fault_group_per_event,True,unique_events=33; missing_groups=0
+special_event_flags_retained,True,present=20|34|67|69
+main_and_clean_summary_present,True,clean|main
+decision_matrix_has_all_expected_groups,True,control_controller|leakage_water_loss|pressure_regulator|pump_failure|unknown_review|valve_actuator
+stable_crossing_is_official_metric,True,stable is official; first is reference
+saved_summary_recompute_match,True,max_diff=0.0
+non_target_manufacturer_absent,True,
