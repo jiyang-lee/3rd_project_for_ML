@@ -878,12 +878,20 @@ def evaluate_models(registry: pd.DataFrame, dataset: pd.DataFrame) -> dict[str, 
             threshold_used = DEFAULT_THRESHOLD
             threshold_source = "default_0.5"
 
+        same_pool_fit_candidate = (
+            str(row["owner"]) == "ljy2"
+            and str(row["model_file"]) == "m1_m2_system_stratified_pre_event_candidate.joblib"
+        )
+
         if task_family not in include_families:
             eligibility = "excluded_task_family"
             reason = f"target_mismatch:{task_family}"
         elif load_status != "loaded":
             eligibility = "excluded_load_failed"
             reason = load_error
+        elif same_pool_fit_candidate:
+            eligibility = "excluded_in_sample_candidate"
+            reason = "trained_on_same_standard_feature_pool_main_eligible_rows; use only as reference_not_ranked"
         elif multi_window_required:
             eligibility = "excluded_execution_unit_mismatch"
             reason = "multi_window_k_rule_requires_window_sequence"
