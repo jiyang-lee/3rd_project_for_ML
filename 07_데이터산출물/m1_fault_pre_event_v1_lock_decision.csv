@@ -1,0 +1,2 @@
+final_decision,recipe,feature_set,feature_count,model,threshold,fixed_eval_rows,normal_rows,positive_rows,balanced_accuracy,recall,normal_fpr,false_positive_count,false_negative_count,group_overlap_zero,reproduced_27_recipe,passes_lock_criteria
+fault_pre_event_gate_v1_locked_for_M1,expanded_compact13_logistic_balanced_threshold_0.6,compact13_overlap,13,LogisticRegression(class_weight=balanced),0.6,49,35,14,0.85,0.7857142857142857,0.08571428571428572,3,3,True,True,True

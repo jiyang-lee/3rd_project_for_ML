@@ -1,0 +1,4 @@
+strategy,evaluation_scope,fold,rows,normal_rows,positive_rows,threshold,balanced_accuracy,precision,recall,f1,roc_auc,normal_fpr,false_positive_count,false_negative_count,true_positive_count,true_negative_count
+dummy_most_frequent,main_all_49,all,49,35,14,0.6,0.5,0.0,0.0,0.0,0.5,0.0,0,14,0,35
+pre_event_gate_v1,main_all_49,all,49,35,14,0.6,0.85,0.7857142857142857,0.7857142857142857,0.7857142857142857,0.936734693877551,0.08571428571428572,3,3,11,32
+reference_compact13,main_all_49,all,49,35,14,0.6,0.8285714285714285,0.8333333333333334,0.7142857142857143,0.7692307692307693,0.8653061224489796,0.05714285714285714,2,4,10,33

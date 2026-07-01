@@ -1,0 +1,34 @@
+event_id,substation_id,fault_label,problem_en,efd_possible,monitoring_potential,report_date,first_crossing_lead_time_hours,stable_crossing_lead_time_hours,d0_probability,d0_prediction,min_coverage_rate,low_coverage_window_count,event20_low_coverage_flag,event67_long_anomaly_flag,unknown_fault_label_flag,training_end_missing_flag
+1,10,Motorised control valve (primary side): Actuator defective,no DHW,True,3.4,2014-05-04 14:44:00,168.0,168.0,0.9997628138313355,1,1.0,0,False,False,False,False
+3,12,Control unit: Incorrect parameterisation,no heat,True,4.0,2015-12-01 10:56:00,168.0,0.0,0.9854038165062013,1,1.0,0,False,False,False,False
+5,11,Failure of the heating circuit pump,no heat,True,3.8,2018-11-23 08:30:00,24.0,24.0,0.9836120351232626,1,1.0,0,False,False,False,False
+6,21,Control unit: Incorrect parameterisation,not enough heat,True,4.0,2016-12-06 13:12:00,120.0,0.0,0.7491923592094238,1,1.0,0,False,False,False,False
+7,26,Incorrect setting of the differential pressure regulator,no DHW,True,3.1,2020-06-13 10:38:00,168.0,0.0,0.9999942585433894,1,1.0,0,False,False,False,False
+10,30,Leakage,leakage,True,1.75,2020-03-16 15:04:00,168.0,168.0,0.9999996076326735,1,1.0,0,False,False,False,False
+11,4,Motorised control valve (primary side): Actuator defective,no heat,False,3.4,2016-11-18 15:13:00,168.0,,2.2951929207164804e-06,0,1.0,0,False,False,False,True
+13,24,Failure of the heating circuit pump,not enough heat,True,3.8,2016-01-12 12:39:00,168.0,,0.5388076120923525,0,1.0,0,False,False,False,False
+15,29,Failure of the domestic hot water storage charging pump,no heat,True,3.7,2020-03-07 07:59:43,168.0,0.0,0.6798085866224269,1,1.0,0,False,False,False,False
+20,11,"Safety relief valve: Water loss, does not close properly",no DHW,True,2.0,2018-07-02 10:49:00,168.0,,0.3455281549894983,0,0.7242063492063492,3,True,False,False,False
+23,27,Control unit: Incorrect parameterisation,not enough heat,True,4.0,2020-01-20 12:57:00,72.0,0.0,0.8988810889643669,1,1.0,0,False,False,False,False
+24,13,Failure of the heating circuit pump,noise,True,3.8,2016-07-20 15:17:00,168.0,0.0,0.933219476598265,1,1.0,0,False,False,False,False
+29,17,Motorised control valve (primary side): Control valve jams when closed,no heat,True,3.2,2019-01-09 14:18:00,168.0,,0.30289063228616253,0,1.0,0,False,False,False,False
+32,21,Control unit: Incorrect parameterisation,not enough heat,True,4.0,2019-10-19 10:38:00,168.0,0.0,0.8608889625407858,1,1.0,0,False,False,False,False
+34,20,unknown,other,True,,2017-06-07 07:34:00,24.0,,0.39195647400870226,0,1.0,0,False,False,True,False
+36,7,Control unit: Incorrect parameterisation,not enough heat,False,4.0,2015-04-02 20:05:00,,,0.424850296100838,0,1.0,0,False,False,False,True
+37,19,Control unit: Incorrect parameterisation,no heat,True,4.0,2018-11-21 09:15:00,168.0,0.0,0.7571231753353214,1,1.0,0,False,False,False,False
+38,24,Incorrect setting of the differential pressure regulator,not enough heat,True,3.1,2016-10-24 13:55:00,168.0,0.0,0.9573924487361661,1,1.0,0,False,False,False,False
+40,24,"Safety relief valve: Water loss, does not close properly",leakage,True,2.0,2016-04-07 07:47:00,168.0,168.0,0.9048528227271138,1,0.9950396825396826,0,False,False,False,False
+44,8,Temperature monitor/controller defective,no DHW,True,3.0,2018-04-27 08:15:00,12.0,12.0,0.8587727921959915,1,1.0,0,False,False,False,False
+45,31,"Heat exchanger: Leakage, external",leakage,True,2.0,2020-01-13 15:48:00,72.0,,0.5164229643582501,0,1.0,0,False,False,False,False
+47,28,Failure of the heating circuit pump,no heat,True,3.8,2020-01-13 10:55:00,72.0,72.0,0.9464888595488308,1,1.0,0,False,False,False,False
+49,18,Control unit: Incorrect parameterisation,no DHW,True,4.0,2019-05-04 07:19:00,0.0,0.0,0.9607645319901589,1,0.9970238095238095,0,False,False,False,False
+52,21,Control unit: Incorrect parameterisation,no heat,True,4.0,2016-12-12 15:55:00,168.0,0.0,0.7913210418417054,1,1.0,0,False,False,False,False
+53,13,Shut-off valve closed,no DHW,True,2.8,2020-05-26 10:00:00,168.0,0.0,0.991303246323025,1,1.0,0,False,False,False,False
+57,9,Differential pressure regulator defective,no heat,True,3.2,2020-02-24 21:13:00,168.0,0.0,0.9734807690539089,1,1.0,0,False,False,False,False
+60,4,Control unit: Incorrect parameterisation,no heat,False,4.0,2015-03-18 18:54:00,72.0,0.0,0.9113455182824093,1,1.0,0,False,False,False,True
+62,21,Control unit: Incorrect parameterisation,not enough heat,True,4.0,2019-01-21 08:17:00,24.0,0.0,0.8765293531986366,1,1.0,0,False,False,False,False
+63,7,Control unit: Incorrect parameterisation,not enough heat,False,4.0,2015-03-26 07:15:00,168.0,,0.56641143681874,0,1.0,0,False,False,False,True
+64,6,Differential pressure regulator defective,other,True,3.2,2019-04-16 09:41:00,72.0,0.0,0.8914341700899385,1,1.0,0,False,False,False,False
+65,11,Leakage,leakage,True,1.75,2019-01-14 11:58:00,168.0,0.0,0.8446260072854247,1,1.0,0,False,False,False,False
+67,7,Motorised control valve (primary side) defective,no DHW,True,3.4,2017-11-26 13:15:00,168.0,0.0,0.9515417680716607,1,1.0,0,False,True,False,False
+69,26,unknown,no heat,True,,2020-03-10 15:49:00,168.0,0.0,0.987606200339629,1,1.0,0,False,False,True,True

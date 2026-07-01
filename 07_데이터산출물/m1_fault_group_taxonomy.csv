@@ -1,0 +1,15 @@
+fault_label,label_rows,efd_possible_true,mean_monitoring_potential,event_ids,semantic_group,fault_group
+Control unit: Incorrect parameterisation,11,8,4.0,3|6|23|32|36|37|49|52|60|62|63,control_controller,control_controller
+Differential pressure regulator defective,2,2,3.2,57|64,pressure_regulator,pressure_regulator
+Failure of the domestic hot water storage charging pump,1,1,3.7,15,pump_failure,pump_failure
+Failure of the heating circuit pump,4,4,3.8,5|13|24|47,pump_failure,pump_failure
+"Heat exchanger: Leakage, external",1,1,2.0,45,leakage_water_loss,leakage_water_loss
+Incorrect setting of the differential pressure regulator,2,2,3.1,7|38,pressure_regulator,pressure_regulator
+Leakage,2,2,1.75,10|65,leakage_water_loss,leakage_water_loss
+Motorised control valve (primary side) defective,1,1,3.4,67,valve_actuator,valve_actuator
+Motorised control valve (primary side): Actuator defective,2,1,3.4,1|11,valve_actuator,valve_actuator
+Motorised control valve (primary side): Control valve jams when closed,1,1,3.2,29,valve_actuator,valve_actuator
+"Safety relief valve: Water loss, does not close properly",2,2,2.0,20|40,leakage_water_loss,leakage_water_loss
+Shut-off valve closed,1,1,2.8,53,valve_actuator,valve_actuator
+Temperature monitor/controller defective,1,1,3.0,44,control_controller,control_controller
+unknown,2,2,,34|69,unknown_review,unknown_review
