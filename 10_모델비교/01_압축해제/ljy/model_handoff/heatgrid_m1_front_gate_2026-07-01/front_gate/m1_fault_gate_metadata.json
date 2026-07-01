@@ -1,0 +1,58 @@
+{
+  "package_id": "m1_front_gate_joblib_handoff_v1",
+  "package": "heatgrid_m1_front_gate_2026-07-01",
+  "created_date": "2026-07-01",
+  "source_commit_hash": "8736cd8e08808a8ba5042fac6f6a3bd026a52b51",
+  "selected_model": {
+    "component": "fault_gate",
+    "role": "front_gate",
+    "model_type": "RandomForestClassifier_depth3",
+    "source_model_path": "08_모델산출물\\m1_fault_gate_rf_depth3.joblib",
+    "packaged_model_path": "front_gate/m1_fault_gate_rf_depth3.joblib",
+    "feature_set": "compact13",
+    "feature_count": 13,
+    "threshold": 0.5,
+    "training_dataset_id": "fault_no_overlap",
+    "training_rows": 90,
+    "positive_rows": 55,
+    "normal_rows": 35
+  },
+  "locked_runtime_metric": {
+    "rows": 90,
+    "positive_rows": 55,
+    "normal_rows": 35,
+    "balanced_accuracy": 0.8454545454545455,
+    "precision": 0.875,
+    "recall": 0.8909090909090909,
+    "f1": 0.8828828828828829,
+    "normal_fpr": 0.2,
+    "source": "07_데이터산출물/m1_full_gate_decision_matrix.csv"
+  },
+  "joblib_reload_validation": {
+    "reload_prediction_identical": true,
+    "reload_probability_allclose": true,
+    "reload_max_probability_abs_diff": 2.220446049250313E-16,
+    "source": "07_데이터산출물/m1_joblib_reload_validation.csv"
+  },
+  "input_features": [
+    "outdoor_temperature__last_12h_mean_minus_prev_12h_mean",
+    "outdoor_temperature__last_6h_mean_minus_prev_6h_mean",
+    "outdoor_temperature__last_minus_first",
+    "p_hc1_return_temperature__last_12h_mean_minus_prev_12h_mean",
+    "p_hc1_return_temperature__last_1d_mean_minus_prev_6d_mean",
+    "p_net_meter_flow__last_1d_std_minus_prev_6d_std",
+    "p_net_return_temperature__last_1d_mean_minus_prev_6d_mean",
+    "p_return_gap__last_1d_mean_minus_prev_6d_mean",
+    "p_return_gap__last_minus_first",
+    "s_hc1_supply_temperature__last_1d_mean_minus_prev_6d_mean",
+    "s_hc1_supply_temperature__last_1d_std_minus_prev_6d_std",
+    "s_hc1_supply_temperature_error__last_minus_first",
+    "s_hc1_supply_temperature_setpoint__last_1d_mean_minus_prev_6d_mean"
+  ],
+  "excluded_models": [
+    "task_gate",
+    "activity_gate",
+    "fault_pre_event_gate",
+    "priority_policy"
+  ]
+}

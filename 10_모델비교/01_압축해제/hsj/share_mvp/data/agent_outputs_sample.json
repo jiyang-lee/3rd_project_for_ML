@@ -1,0 +1,1532 @@
+[
+  {
+    "agent_input": {
+      "window_id": "window_00007575",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T07:10:00",
+      "window_end": "2019-11-30T08:10:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0706161149693653,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 342836666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 41.1,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.4,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007576",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T07:20:00",
+      "window_end": "2019-11-30T08:20:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0688627713338655,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 342931666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 41.8,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.5,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007577",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T07:30:00",
+      "window_end": "2019-11-30T08:30:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0664485193227448,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343026666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 41.8,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.9,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007578",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T07:40:00",
+      "window_end": "2019-11-30T08:40:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0675311382963165,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343120000.0,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 41.8,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007579",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T07:50:00",
+      "window_end": "2019-11-30T08:50:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0738525175836605,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343213333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 40.5,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007580",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:00:00",
+      "window_end": "2019-11-30T09:00:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0796294539843587,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343283333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 40.5,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007581",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:10:00",
+      "window_end": "2019-11-30T09:10:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0822038416871692,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343356666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 40.5,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007582",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:20:00",
+      "window_end": "2019-11-30T09:20:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0892659411711873,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343406666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 40.5,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007583",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:30:00",
+      "window_end": "2019-11-30T09:30:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0833462370993493,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343456666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 40.0,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007584",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:40:00",
+      "window_end": "2019-11-30T09:40:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.1039507535118267,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343483333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 39.0,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007585",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T08:50:00",
+      "window_end": "2019-11-30T09:50:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0887342527111983,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343486666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 38.2,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.9,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007586",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:00:00",
+      "window_end": "2019-11-30T10:00:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0734322760899932,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343491666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007587",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:10:00",
+      "window_end": "2019-11-30T10:10:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0780938629452449,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343493333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007588",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:20:00",
+      "window_end": "2019-11-30T10:20:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0844817713302802,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343523333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007589",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:30:00",
+      "window_end": "2019-11-30T10:30:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.097255965692293,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343583333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 44.4,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007590",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:40:00",
+      "window_end": "2019-11-30T10:40:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0856781906295993,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343643333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 42.3,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007591",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T09:50:00",
+      "window_end": "2019-11-30T10:50:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0880497215901472,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343728333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 44.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007592",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:00:00",
+      "window_end": "2019-11-30T11:00:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0839908715388857,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343836666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 34.8,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.2,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007593",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:10:00",
+      "window_end": "2019-11-30T11:10:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.088457049730745,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 343945000.0,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 37.3,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 45.8,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007594",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:20:00",
+      "window_end": "2019-11-30T11:20:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.078750268500669,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344048333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 39.6,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007595",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:30:00",
+      "window_end": "2019-11-30T11:30:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0738420639291846,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344143333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 41.8,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007596",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:40:00",
+      "window_end": "2019-11-30T11:40:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0666162838335301,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344238333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 43.5,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007597",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T10:50:00",
+      "window_end": "2019-11-30T11:50:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0645420168222342,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344331666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.2,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 46.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007598",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:00:00",
+      "window_end": "2019-11-30T12:00:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0637083130630473,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344423333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.2,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 47.5,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007599",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:10:00",
+      "window_end": "2019-11-30T12:10:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0689179529906799,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344515000.0,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.2,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 59.0,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007600",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:20:00",
+      "window_end": "2019-11-30T12:20:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0699684369625593,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344606666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.2,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 66.7,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007601",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:30:00",
+      "window_end": "2019-11-30T12:30:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0779910804314086,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344698333.3333333,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 45.1,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 69.4,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007602",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:40:00",
+      "window_end": "2019-11-30T12:40:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0909916372882294,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344790000.0,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.6,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 70.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007603",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T11:50:00",
+      "window_end": "2019-11-30T12:50:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0929899146900389,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344876666.6666667,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 70.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  },
+  {
+    "agent_input": {
+      "window_id": "window_00007604",
+      "source_label_id": "event:15.0",
+      "matched_event_id": 15.0,
+      "manufacturer": "manufacturer 2",
+      "substation_id": 50,
+      "window_start": "2019-11-30T12:00:00",
+      "window_end": "2019-11-30T13:00:00",
+      "model_name": "LightGBM",
+      "risk_probability": 0.5149401903320364,
+      "selected_threshold": 0.5,
+      "pred_risk": 1,
+      "anomaly_score": 0.0745331864324088,
+      "is_anomaly": 1,
+      "risk_level": "HIGH",
+      "top_features": [
+        {
+          "feature": "p_net_meter_volume__mean",
+          "value": 344940000.0,
+          "importance": 1407.1400146484375
+        },
+        {
+          "feature": "s_dhw_lower_storage_temperature__min",
+          "value": 44.4,
+          "importance": 638.8909912109375
+        },
+        {
+          "feature": "s_hc1.2_return_temperature_setpoint__mean",
+          "value": null,
+          "importance": 489.40301513671875
+        },
+        {
+          "feature": "s_hc1.2_supply_temperature__min",
+          "value": null,
+          "importance": 409.9540100097656
+        },
+        {
+          "feature": "s_dhw_upper_storage_temperature__max",
+          "value": 70.1,
+          "importance": 264.0889892578125
+        }
+      ],
+      "label_context": "pre_fault"
+    },
+    "agent_output": {
+      "agent_message": "설비 50에서 HIGH 수준의 고장 위험 신호가 감지되었습니다. LightGBM 위험 확률은 0.515이며, Isolation Forest 기준 정상 패턴 이탈 여부는 1입니다. 주요 영향 변수 후보는 p_net_meter_volume__mean, s_dhw_lower_storage_temperature__min, s_hc1.2_return_temperature_setpoint__mean, s_hc1.2_supply_temperature__min, s_dhw_upper_storage_temperature__max입니다. 현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "recommendation": "현장 점검, 센서 이상 여부 확인, 열교환/유량/온도 계통 상태 확인을 우선 권장합니다.",
+      "policy_note": "LLM Agent는 ML 모델 결과를 설명하고 요약할 뿐, 새로운 고장 예측을 생성하지 않습니다."
+    }
+  }
+]

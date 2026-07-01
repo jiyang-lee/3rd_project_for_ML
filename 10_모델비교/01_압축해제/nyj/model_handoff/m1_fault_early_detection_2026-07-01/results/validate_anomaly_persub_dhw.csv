@@ -1,0 +1,4 @@
+﻿detector,detect,false_alarm,fault_covered,normal_covered
+OneClassSVM,1.0,0.971,14,35
+LOF,0.857,0.057,14,35
+IsolationForest,0.857,0.114,14,35

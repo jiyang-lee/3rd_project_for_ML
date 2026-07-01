@@ -1,0 +1,97 @@
+﻿{
+    "package":  "heatgrid_best_models_only_no_dl_2026-07-01",
+    "source":  "best/models",
+    "source_date":  "2026-07-01",
+    "target_usage":  "Minimal model comparison handoff; joblib/json only except anomaly threshold csv",
+    "excludes":  [
+                     "best/models/raw_point_ae/**",
+                     "*.pt",
+                     "contracts/**",
+                     "evaluation/**",
+                     "source_reference/**",
+                     "bulk score CSVs",
+                     "raw data"
+                 ],
+    "files":  [
+                  {
+                      "path":  "anomaly/anomaly_baseline_thresholds.csv",
+                      "bytes":  423,
+                      "sha256":  "a736db8fd1db90ecfe3494f9fe1843069321c191c0a80840a4b0596d2fb8e5bc"
+                  },
+                  {
+                      "path":  "anomaly/anomaly_ensemble_metadata.json",
+                      "bytes":  8874,
+                      "sha256":  "a3414ca9fad8e196c2755667bfc1132152d0d04f52a1e71d12fcda3bea350ffd"
+                  },
+                  {
+                      "path":  "anomaly/baseline_model_metadata.json",
+                      "bytes":  9811,
+                      "sha256":  "10d2e673bcf06ce4ce6623972ac08857e25f4a7cd9e5d9d620fbe78c2b923a07"
+                  },
+                  {
+                      "path":  "anomaly/isolation_forest.joblib",
+                      "bytes":  3392413,
+                      "sha256":  "3207814ba3fe3788bb4207abde4db4e4da52b5356203bc03aeccb41fa0acbf75"
+                  },
+                  {
+                      "path":  "anomaly/mahalanobis_ledoitwolf.joblib",
+                      "bytes":  610575,
+                      "sha256":  "f6f0d4fb079f8ec4bd756a5ab41eccfc16343fdf36af3cdad286b65f20263f39"
+                  },
+                  {
+                      "path":  "anomaly/multi_window_anomaly_metadata.json",
+                      "bytes":  2742,
+                      "sha256":  "fee470051549ea2b31432ec1cb494dd5e47282d5f80c57d2c12d39cbecd7f417"
+                  },
+                  {
+                      "path":  "anomaly/multi_window_raw_12h.joblib",
+                      "bytes":  2484019,
+                      "sha256":  "24152af99bd86f0090b1187f0445a49eec17869fa79d9dcb0004e814811e74df"
+                  },
+                  {
+                      "path":  "anomaly/multi_window_raw_1h.joblib",
+                      "bytes":  2387792,
+                      "sha256":  "fca106f963c29716505284a2fa6dcb4a5bb1f548ba27e21faef8bccb7157730c"
+                  },
+                  {
+                      "path":  "anomaly/multi_window_raw_3h.joblib",
+                      "bytes":  2432144,
+                      "sha256":  "7de477d2b4fe7699ddde5f29c17a964bb620451b17c304207f4e6d64fd9337f1"
+                  },
+                  {
+                      "path":  "anomaly/standard_scaler.joblib",
+                      "bytes":  5279,
+                      "sha256":  "c9bd45f662fb1c2be7180a38127721f142435d98e2790d183c3b09d10ed52bcd"
+                  },
+                  {
+                      "path":  "leadtime/leadtime_model_best.joblib",
+                      "bytes":  880912,
+                      "sha256":  "61794809cbd382f70f1f8e948820e2dc36010cb6ddd9aa597e52f75dd9bf24ae"
+                  },
+                  {
+                      "path":  "leadtime/leadtime_model_best_metadata.json",
+                      "bytes":  35833,
+                      "sha256":  "64dd87587c568f39f0104c57f2d334e218330d98d40c0738bb52f670b247eeb0"
+                  },
+                  {
+                      "path":  "priority/priority_engine_best_metadata.json",
+                      "bytes":  1875,
+                      "sha256":  "acfe9a59f8a79f3efd5390d8dbe359e90262dce10bfe7b4f1911d28d1752b608"
+                  },
+                  {
+                      "path":  "README.md",
+                      "bytes":  1800,
+                      "sha256":  "dc7022ebd9aab9de686e85bd6d7d3ec565bceb7bd5b7759bcc6d807c9c7aec9f"
+                  },
+                  {
+                      "path":  "risk/risk_model_best.joblib",
+                      "bytes":  352172,
+                      "sha256":  "e5dc2a36aab930d85b7dbf98fa203c8f867d97132562636cde170bd250dfb447"
+                  },
+                  {
+                      "path":  "risk/risk_model_best_metadata.json",
+                      "bytes":  38145,
+                      "sha256":  "3aa81d1a62814e1ac5730c07ca69b9d04e02fc2ebce1fba8c9714d76f2e60399"
+                  }
+              ]
+}

@@ -1,0 +1,4 @@
+﻿method,detect,false_alarm,n_fault
+per-sub LOF (covered),0.857,0.057,14
+NaiveBayes (covered),0.5,0.171,14
+NaiveBayes (all 28),0.5,0.171,28

@@ -1,0 +1,103 @@
+{
+    "package": "m1_fault_early_detection_2026-07-01",
+    "project": "M1 지역난방 설비 고장 조기탐지 (manufacturer 1 전용)",
+    "branch_source": "main",
+    "target_usage": "Agent/service inference handoff — 최종 모델·결과·문서 전달",
+    "adopted_model": "설비별 하이브리드 (설비별 LOF + 전역 NaiveBayes 라우팅)",
+    "performance_estimate": "탐지 0.679 @ 오경보 0.114 (설비단위 nested CV)",
+    "model_file": "model/hybrid_model.joblib — 전체 데이터 학습, 커스텀 클래스 없이 joblib.load 가능",
+    "note": "성능 수치는 nested CV 추정치. baseline_model.joblib은 참고용 GradBoost(최종 아님).",
+    "excludes": [
+        "manufacturer 1/operational_data raw CSV",
+        "data/processed/*.parquet (재생성 가능)",
+        "modeling/*.ipynb 실험 노트북",
+        "manufacturer 2 데이터 일체"
+    ],
+    "files": [
+        {
+            "path": "docs/01_preprocessing_pipeline_review.md",
+            "bytes": 6446,
+            "sha256": "9856130a74f8a0aecf6af69567b6d7096a418f5e72bf6e1535d0c7a305fd80e4"
+        },
+        {
+            "path": "docs/02_model_performance_review.md",
+            "bytes": 5892,
+            "sha256": "de7da6f6d0f396623a48e7bc52f35960d2eb49eecfa59adfa838367396726822"
+        },
+        {
+            "path": "docs/03_design_rationale.md",
+            "bytes": 14794,
+            "sha256": "ee3742dc07b4b02085e306ef17500de37801efb39dc8828a44b085702050c6f0"
+        },
+        {
+            "path": "docs/04_easy_overview.md",
+            "bytes": 13404,
+            "sha256": "c5d20623a17759cd724c6b5271066580f234646e767b96a5a56e1333a9207088"
+        },
+        {
+            "path": "docs/05_full_summary.md",
+            "bytes": 10598,
+            "sha256": "5384d74de645da669c895f215492afef2dd03f8fbf463752a0c90554e6c1827f"
+        },
+        {
+            "path": "docs/보고서_M1_고장조기탐지.md",
+            "bytes": 9106,
+            "sha256": "51335e045a6d1d20e230ba0ae20a35613d3fe4eaaa7dee40fe4e602d464e5cfa"
+        },
+        {
+            "path": "model/baseline_model.joblib",
+            "bytes": 400003,
+            "sha256": "400f6ad9605143e404b9ccb7b904d7a7b63d65ef081be8f235bf6352f8edbb41"
+        },
+        {
+            "path": "model/baseline_model_meta.json",
+            "bytes": 2101,
+            "sha256": "6279d732d62a164342be5bc1b1dc072d643ba7a91df437f27809e4f98ead287b"
+        },
+        {
+            "path": "model/hybrid_model.joblib",
+            "bytes": 911763,
+            "sha256": "184715106dc3e148f2e28736662b7a7580e61c645b6b5d59ca84ac6de0e10790"
+        },
+        {
+            "path": "model/hybrid_model_meta.json",
+            "bytes": 3990,
+            "sha256": "38139af3dedb4b8ee3c1f7b8ea99b6dff76ba7d1e4ac85a518557d9bab56b572"
+        },
+        {
+            "path": "model/inference_example.py",
+            "bytes": 3654,
+            "sha256": "f5ae4b732209173d82f323a87a94cf42a918406edf8c4b383ca6d04059cb8e0c"
+        },
+        {
+            "path": "README.md",
+            "bytes": 10035,
+            "sha256": "12faf885d0db4ef165ff27036c3347d2186320d254af13f9113e1e9037a30ff1"
+        },
+        {
+            "path": "results/anomaly_on_original.csv",
+            "bytes": 678,
+            "sha256": "ff06e4c1eb840cefc0c6d1a0c483c148529bd3159be7fa463de2ceebc30a0c64"
+        },
+        {
+            "path": "results/validate_anomaly_persub_dhw.csv",
+            "bytes": 148,
+            "sha256": "16872397c905bc4eb30cc57db464640b66e85d7ac36e61feea36e6fd18ec8a85"
+        },
+        {
+            "path": "results/validate_hybrid_dhw.csv",
+            "bytes": 110,
+            "sha256": "4ed3f0c5bf2ba204cb09eac4f7ce340a86bc0abc80c54dfb72e4d7e9375fc8c5"
+        },
+        {
+            "path": "results/validate_hybrid_frontier_dhw.csv",
+            "bytes": 162,
+            "sha256": "a5aef0e4fccefa39b431be922d3dd043904cbe615918c16a3ad19f88849a2a3a"
+        },
+        {
+            "path": "results/validate_persub_matched_dhw.csv",
+            "bytes": 145,
+            "sha256": "afd6ceef670de30389f94dcc9603a7dd53e930f394394ce8d58e00ef1cd88c73"
+        }
+    ]
+}

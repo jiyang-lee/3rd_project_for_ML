@@ -1,0 +1,15 @@
+﻿owner,model_file,artifact_path,task_family,metadata_path,metadata_feature_source,metadata_required_feature_count,declared_threshold,threshold_source
+hsj,07_random_forest_baseline.joblib,01_압축해제\hsj\share_mvp\models\07_random_forest_baseline.joblib,pre_event_candidate,,,0,,
+hsj,08_isolation_forest.joblib,01_압축해제\hsj\share_mvp\models\08_isolation_forest.joblib,anomaly,,,0,,
+hsj,09_lightgbm_model.joblib,01_압축해제\hsj\share_mvp\models\09_lightgbm_model.joblib,pre_event_candidate,,,0,,
+osj,isolation_forest.joblib,01_압축해제\osj\model_handoff_osj\anomaly\isolation_forest.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\anomaly_ensemble_metadata.json,feature_columns,195,0.99,threshold_quantile
+osj,mahalanobis_ledoitwolf.joblib,01_압축해제\osj\model_handoff_osj\anomaly\mahalanobis_ledoitwolf.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\anomaly_ensemble_metadata.json,feature_columns,195,0.99,threshold_quantile
+osj,multi_window_raw_12h.joblib,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_raw_12h.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_anomaly_metadata.json,feature_columns,43,0.99,threshold_quantile
+osj,multi_window_raw_1h.joblib,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_raw_1h.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_anomaly_metadata.json,feature_columns,43,0.99,threshold_quantile
+osj,multi_window_raw_3h.joblib,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_raw_3h.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\multi_window_anomaly_metadata.json,feature_columns,43,0.99,threshold_quantile
+osj,standard_scaler.joblib,01_압축해제\osj\model_handoff_osj\anomaly\standard_scaler.joblib,anomaly,01_압축해제\osj\model_handoff_osj\anomaly\anomaly_ensemble_metadata.json,feature_columns,195,0.99,threshold_quantile
+osj,leadtime_model_best.joblib,01_압축해제\osj\model_handoff_osj\leadtime\leadtime_model_best.joblib,leadtime,01_압축해제\osj\model_handoff_osj\leadtime\leadtime_model_best_metadata.json,model_feature_columns,454,,
+osj,risk_model_best.joblib,01_압축해제\osj\model_handoff_osj\risk\risk_model_best.joblib,risk,01_압축해제\osj\model_handoff_osj\risk\risk_model_best_metadata.json,model_feature_columns,313,0.05,threshold_max_false_positive_rate
+nyj,baseline_model.joblib,01_압축해제\nyj\model_handoff\m1_fault_early_detection_2026-07-01\model\baseline_model.joblib,early_detection,01_압축해제\nyj\model_handoff\m1_fault_early_detection_2026-07-01\model\baseline_model_meta.json,features,55,0.75,operating_point.threshold
+nyj,hybrid_model.joblib,01_압축해제\nyj\model_handoff\m1_fault_early_detection_2026-07-01\model\hybrid_model.joblib,early_detection,01_압축해제\nyj\model_handoff\m1_fault_early_detection_2026-07-01\model\baseline_model_meta.json,features,55,0.75,operating_point.threshold
+ljy,m1_fault_gate_rf_depth3.joblib,01_압축해제\ljy\model_handoff\heatgrid_m1_front_gate_2026-07-01\front_gate\m1_fault_gate_rf_depth3.joblib,front_gate,01_압축해제\ljy\model_handoff\heatgrid_m1_front_gate_2026-07-01\front_gate\m1_fault_gate_metadata.json,input_features,13,0.5,selected_model.threshold

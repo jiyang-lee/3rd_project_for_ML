@@ -1,0 +1,3 @@
+﻿method,detect,false_alarm,n_fault
+Hybrid (per-sub LOF + NB),0.679,0.257,28
+NaiveBayes only,0.5,0.171,28

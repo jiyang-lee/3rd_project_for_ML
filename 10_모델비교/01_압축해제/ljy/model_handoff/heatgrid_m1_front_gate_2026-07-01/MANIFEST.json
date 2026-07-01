@@ -1,0 +1,31 @@
+{
+  "package": "heatgrid_m1_front_gate_2026-07-01",
+  "branch_source": "main",
+  "target_usage": "Front gate joblib handoff",
+  "selected_component": "fault_gate",
+  "source_model_path": "08_모델산출물/m1_fault_gate_rf_depth3.joblib",
+  "excludes": [
+    "task_gate",
+    "activity_gate",
+    "fault_pre_event_gate",
+    "priority_policy",
+    "bulk score CSV outputs"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1215,
+      "sha256": "d4f380f4b4da04a9503be623df02a28a913ba7c7451f6280bf20979406618050"
+    },
+    {
+      "path": "front_gate/m1_fault_gate_metadata.json",
+      "bytes": 2232,
+      "sha256": "b014324bce492d508057eab8e0e56a828c41671c0541c39cc5823578917f5be3"
+    },
+    {
+      "path": "front_gate/m1_fault_gate_rf_depth3.joblib",
+      "bytes": 409090,
+      "sha256": "8fc3dcf316d9aa87ff401fe80b9176f976a26b64c979557a0f1be38fa18b0663"
+    }
+  ]
+}
