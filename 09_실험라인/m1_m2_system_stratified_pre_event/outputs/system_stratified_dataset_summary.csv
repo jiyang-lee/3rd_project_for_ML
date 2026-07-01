@@ -1,0 +1,14 @@
+﻿system_capability_group,manufacturer,label,rows,substations
+dhw_return,M1,normal,2,1
+dhw_storage,M1,normal,19,12
+dhw_storage,M1,pre_event,14,10
+dhw_storage,M2,normal,15,9
+dhw_storage,M2,pre_event,13,12
+dhw_storage_return,M1,normal,9,6
+dhw_storage_return,M1,pre_event,10,7
+dhw_storage_return,M2,normal,3,2
+dhw_supply,M2,normal,1,1
+heating_common_only,M1,normal,5,3
+heating_common_only,M1,pre_event,2,2
+heating_common_only,M2,normal,11,8
+heating_common_only,M2,pre_event,8,8

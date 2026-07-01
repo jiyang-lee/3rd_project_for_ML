@@ -1,0 +1,7 @@
+﻿quality_check,passed,detail
+base_outputs_exist,True,C:\3rd_Project\HeatGridAgent\09_실험라인\m1_m2_standard_pre_event\outputs
+candidate_model_saved,True,C:\3rd_Project\HeatGridAgent\09_실험라인\m1_m2_system_stratified_pre_event\models\m1_m2_system_stratified_pre_event_candidate.joblib
+m1_m2_original_zip_exists,True,C:\3rd_Project\HeatGridAgent\05_데이터셋\PreDist\predist_dataset.zip
+manufacturer_not_used_as_feature,True,common13 feature list only
+system_groups_have_audit,True,groups=5
+candidate_pass_count,True,17
