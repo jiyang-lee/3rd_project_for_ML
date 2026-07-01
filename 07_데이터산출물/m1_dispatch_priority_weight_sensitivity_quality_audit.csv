@@ -1,0 +1,15 @@
+﻿check,pass,detail
+input_exists_m1_fault_dispatch_priority_v1.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_dispatch_priority_v1.csv
+input_exists_m1_fault_group_leadtime_summary.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_group_leadtime_summary.csv
+input_exists_m1_fault_group_leadtime_decision_matrix.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_group_leadtime_decision_matrix.csv
+input_exists_m1_fault_pre_event_v1_lock_decision.csv,True,C:\3rd_Project\HeatGridAgent\07_데이터산출물\m1_fault_pre_event_v1_lock_decision.csv
+pre_event_lock_unchanged,True,decision=fault_pre_event_gate_v1_locked_for_M1; model=LogisticRegression(class_weight=balanced); feature=compact13_overlap
+no_new_model_training,True,priority sensitivity uses existing 28/29 outputs only
+all_weight_sums_equal_one,True,baseline_28:1.000000|risk_heavy:1.000000|leadtime_heavy:1.000000|group_heavy:1.000000|balanced_policy:1.000000
+baseline_score_matches_28_priority,True,max_diff=2.842170943040401e-14
+stable_leadtime_label_used,True,29 leadtime decision matrix joined by fault_group
+special_event_flags_retained,True,20|34|67|69
+scenario_scores_recompute_match,True,max_diff=1.4210854715202004e-14
+decision_matrix_has_final_decision,True,baseline_28_keep_as_policy_v1
+source_zip_unmodified_by_script,True,script reads only derived CSV outputs
+non_target_manufacturer_absent,True,

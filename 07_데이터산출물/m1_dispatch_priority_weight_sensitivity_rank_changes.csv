@@ -1,0 +1,6 @@
+﻿scenario,top5_overlap_count,top5_overlap_rate,top10_overlap_count,top10_overlap_rate,mean_abs_rank_change,max_abs_rank_change,high_count,medium_count,low_count,monitor_count,high_tier_ratio,review_events_in_top10,review_top10_count,long_leadtime_high_or_medium_count,low_risk_high_count,passes_top10_overlap,passes_review_guardrail,passes_high_tier_ratio,passes_long_leadtime_guardrail,passes_low_risk_guardrail,passes_all_guardrails
+baseline_28,5,1.0,10,1.0,0.0,0,21,4,0,8,0.6363636363636364,,0,6,0,True,True,True,True,True,True
+risk_heavy,3,0.6,7,0.7,2.242424242424242,5,23,2,0,8,0.696969696969697,67,1,6,0,True,False,True,True,True,False
+leadtime_heavy,4,0.8,10,1.0,0.6666666666666666,3,22,2,1,8,0.6666666666666666,,0,5,0,True,True,True,True,True,True
+group_heavy,4,0.8,7,0.7,2.1818181818181817,8,18,6,1,8,0.5454545454545454,,0,5,0,True,True,True,True,True,True
+balanced_policy,4,0.8,10,1.0,1.0303030303030303,4,21,4,0,8,0.6363636363636364,,0,6,0,True,True,True,True,True,True

@@ -1,0 +1,6 @@
+﻿scenario,w_risk,w_leadtime,w_group,policy_intent,weight_sum,formula
+baseline_28,0.55,0.3,0.15,28번 기준선: risk를 가장 크게 보고 leadtime과 group을 보조로 사용,1.0,100*(0.55*risk_probability+0.30*leadtime_urgency+0.15*group_weight)
+risk_heavy,0.7,0.2,0.1,현재 모델 위험확률을 더 강하게 반영,0.9999999999999999,100*(0.70*risk_probability+0.20*leadtime_urgency+0.10*group_weight)
+leadtime_heavy,0.45,0.4,0.15,며칠 전부터 잡히는 신호와 출동 여유를 더 강하게 반영,1.0,100*(0.45*risk_probability+0.40*leadtime_urgency+0.15*group_weight)
+group_heavy,0.45,0.25,0.3,빈도와 monitoring potential이 높은 고장군을 더 강하게 반영,1.0,100*(0.45*risk_probability+0.25*leadtime_urgency+0.30*group_weight)
+balanced_policy,0.5,0.3,0.2,risk 중심은 유지하되 group 정보를 baseline보다 조금 더 반영,1.0,100*(0.50*risk_probability+0.30*leadtime_urgency+0.20*group_weight)
