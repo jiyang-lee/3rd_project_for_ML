@@ -1,6 +1,7 @@
 .venv/
 .codex/
 .agents/
+.claude/
 
 __pycache__/
 .pytest_cache/
