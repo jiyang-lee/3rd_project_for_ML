@@ -1,0 +1,126 @@
+# kma_asos_hourly API extract
+source_file=C:\Users\Admin\Desktop\subdata\04_weather_holiday\data_go_15057210_kma_asos_hourly.html
+generated_at=2026-07-03T09:38:31
+
+<meta name="title" property="og:title" content="기상청_지상(종관, ASOS) 시간자료 조회서비스"/>
+<meta name="description" property="og:description" content="종관기상관측 장비로 관측한 시간 기상자료를 조회하는 서비스
+<title>기상청_지상(종관, ASOS) 시간자료 조회서비스 | 공공데이터포털</title>
+"name":"기상청_지상(종관, ASOS) 시간자료 조회서비스",
+"description":"종관기상관측 장비로 관측한 시간 기상자료를 조회하는 서비스
+dataType: "json",
+<p class="tit open-api-title">기상청_지상(종관, ASOS) 시간자료 조회서비스</p>
+종관기상관측 장비로 관측한 시간 기상자료를 조회하는 서비스
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<caption>기상청_지상(종관, ASOS) 시간자료 조회서비스로 오픈 API 정보 표로 분류체계, 제공기관 등 정보를 나타냄</caption>
+<th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">수정일</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+기상청01_지상(종관,ASOS)시간자료_조회서비스_오픈API활용가이드.docx
+기상관측시간자료목록조회
+title="조회하기">조회
+조회조건(지점 번호, 시간)으로 종관기상관측 시간자료 데이터(지점 번호, 지점 명, 온도, 지면상태, 운형, 운량 등)를 조회하는 기능
+<strong>활용승인 절차</strong>
+<strong>신청가능 트래픽</strong>
+<strong>요청주소</strong>
+<strong>서비스URL</strong>
+<h4 class="tit">요청변수(Request Parameter)</h4>
+<p class="tit-hide">요청변수(Request Parameter)</p>
+<td data-paramtr-nm="ServiceKey">ServiceKey</td>
+<td data-paramtr-nm="pageNo">pageNo</td>
+<td data-paramtr-nm="numOfRows">numOfRows</td>
+<td data-paramtr-nm="dataType">dataType</td>
+<td data-paramtr-nm="startDt">startDt</td>
+<td data-paramtr-dc="조회 기간 시작일(YYYYMMDD)" >조회 기간 시작일(YYYYMMDD)</td>
+<td data-paramtr-dc="조회 기간 시작시(HH)" >조회 기간 시작시(HH)</td>
+<td data-paramtr-nm="endDt">endDt</td>
+<td data-paramtr-dc="조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)" >조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)</td>
+<td data-paramtr-dc="조회 기간 종료시(HH)" >조회 기간 종료시(HH)</td>
+<td data-paramtr-nm="stnIds">stnIds</td>
+<h4 class="tit">출력결과(Response Element)</h4>
+<p class="tit-hide">출력결과(Response Element)</p>
+<td>numOfRows</td>
+<td>pageNo</td>
+<td>dataType</td>
+dataObj.serviceKey = "";
+paramObj.paramtrNm = "ServiceKey";
+paramObj.paramtrNm = "pageNo";
+paramObj.paramtrNm = "numOfRows";
+paramObj.paramtrNm = "dataType";
+paramObj.paramtrNm = "startDt";
+paramObj.paramtrDc = "조회 기간 시작일(YYYYMMDD)";
+paramObj.paramtrDc = "조회 기간 시작시(HH)";
+paramObj.paramtrNm = "endDt";
+paramObj.paramtrDc = "조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)";
+paramObj.paramtrDc = "조회 기간 종료시(HH)";
+paramObj.paramtrNm = "stnIds";
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<span class="title" style="color: #333; font-size: 16px;">기상청_지상(방재, AWS)기상관측자료 조회서비스</span>
+<span class="title" style="color: #333; font-size: 16px;">기상청_지상(방재, AWS)기상관측자료 조회서비스</span>
+<span class="title" style="color: #333; font-size: 16px;">기상청_지상(종관, ASOS) 일자료 조회서비스</span>
+<span class="title" style="color: #333; font-size: 16px;">기상청_지상(종관, ASOS) 일자료 조회서비스</span>
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+, dataType : 'html'
+<caption>기상청_지상(종관, ASOS) 시간자료 조회서비스로 오픈 API 정보 표로 분류체계, 제공기관 등 정보를 나타냄</caption>
+<th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">수정일</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+<td class="td" colspan="2"><a href="javascript:void(0)" onclick="fn_fileDownload('FILE_000000002411530','1')" title="파일 다운">기상청01_지상(종관,ASOS)시간자료_조회서비스_오픈API활용가이드.docx</a></td>
+<option value="25249">기상관측시간자료목록조회</option>
+<button type="button" class="button" onclick="apiObj.fn_selectApiDetailFunction()" title="조회하기">조회</button>
+조회조건(지점 번호, 시간)으로 종관기상관측 시간자료 데이터(지점 번호, 지점 명, 온도, 지면상태, 운형, 운량 등)를 조회하는 기능
+<strong>활용승인 절차</strong>
+<strong>신청가능 트래픽</strong>
+<strong>요청주소</strong>
+<strong>서비스URL</strong>
+<h4 class="tit">요청변수(Request Parameter)</h4>
+<p class="tit-hide">요청변수(Request Parameter)</p>
+<td data-paramtr-nm="ServiceKey">ServiceKey</td>
+<td data-paramtr-nm="pageNo">pageNo</td>
+<td data-paramtr-nm="numOfRows">numOfRows</td>
+<td data-paramtr-nm="dataType">dataType</td>
+<td data-paramtr-nm="startDt">startDt</td>
+<td data-paramtr-dc="조회 기간 시작일(YYYYMMDD)" >조회 기간 시작일(YYYYMMDD)</td>
+<td data-paramtr-dc="조회 기간 시작시(HH)" >조회 기간 시작시(HH)</td>
+<td data-paramtr-nm="endDt">endDt</td>
+<td data-paramtr-dc="조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)" >조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)</td>
+<td data-paramtr-dc="조회 기간 종료시(HH)" >조회 기간 종료시(HH)</td>
+<td data-paramtr-nm="stnIds">stnIds</td>
+<h4 class="tit">출력결과(Response Element)</h4>
+<p class="tit-hide">출력결과(Response Element)</p>
+<td>numOfRows</td>
+<td>pageNo</td>
+<td>dataType</td>
+dataObj.serviceKey = "";
+paramObj.paramtrNm = "ServiceKey";
+paramObj.paramtrNm = "pageNo";
+paramObj.paramtrNm = "numOfRows";
+paramObj.paramtrNm = "dataType";
+paramObj.paramtrNm = "startDt";
+paramObj.paramtrDc = "조회 기간 시작일(YYYYMMDD)";
+paramObj.paramtrDc = "조회 기간 시작시(HH)";
+paramObj.paramtrNm = "endDt";
+paramObj.paramtrDc = "조회 기간 종료일(YYYYMMDD) (전일(D-1) 까지 제공)";
+paramObj.paramtrDc = "조회 기간 종료시(HH)";
+paramObj.paramtrNm = "stnIds";
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<span class="tit">수정일</span>
+<span class="tit">수정일</span>
+<span class="tit">수정일</span>
+<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">기상청_지상(방재, AWS)기상관측자료 조회서비스</span>
+<span class="tit">수정일</span>
+<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">기상청_지상(종관, ASOS) 일자료 조회서비스</span>
+<span class="tit">수정일</span>
+, dataType : 'html'
+dataType : "json",
+dataType : "json",

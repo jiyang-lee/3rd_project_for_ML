@@ -1,0 +1,101 @@
+# kasi_special_day API extract
+source_file=C:\Users\Admin\Desktop\subdata\04_weather_holiday\data_go_15012690_kasi_special_day.html
+generated_at=2026-07-03T09:38:31
+
+<meta name="description" property="og:description" content="(천문우주정보)국경일정보, 공휴일정보, 기념일정보, 24절기정보, 잡절정보를 조회하는 서비스 입니다.
+"description":"(천문우주정보)국경일정보, 공휴일정보, 기념일정보, 24절기정보, 잡절정보를 조회하는 서비스 입니다.
+dataType: "json",
+(천문우주정보)국경일정보, 공휴일정보, 기념일정보, 24절기정보, 잡절정보를 조회하는 서비스 입니다.
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">수정일</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+기념일 정보 조회
+공휴일 정보 조회
+국경일 정보조회
+24절기 정보 조회
+잡절 정보 조회
+title="조회하기">조회
+<strong>활용승인 절차</strong>
+<strong>신청가능 트래픽</strong>
+<strong>요청주소</strong>
+<strong>서비스URL</strong>
+<h4 class="tit">요청변수(Request Parameter)</h4>
+<p class="tit-hide">요청변수(Request Parameter)</p>
+<td data-paramtr-nm="ServiceKey">ServiceKey</td>
+<td data-paramtr-nm="pageNo">pageNo</td>
+<td data-paramtr-nm="numOfRows">numOfRows</td>
+<td data-paramtr-nm="solYear">solYear</td>
+<td data-paramtr-nm="solMonth">solMonth</td>
+<h4 class="tit">출력결과(Response Element)</h4>
+<p class="tit-hide">출력결과(Response Element)</p>
+<td>numOfRows</td>
+<td>pageNo</td>
+<td>locdate</td>
+<td>isHoliday</td>
+<td>dateName</td>
+dataObj.serviceKey = "";
+paramObj.paramtrNm = "ServiceKey";
+paramObj.paramtrNm = "pageNo";
+paramObj.paramtrNm = "numOfRows";
+paramObj.paramtrNm = "solYear";
+paramObj.paramtrNm = "solMonth";
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<span class="title" style="color: #333; font-size: 16px;">한국천문연구원_일요일 정보조회</span>
+<span class="title" style="color: #333; font-size: 16px;">한국천문연구원_일요일 정보조회</span>
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+, dataType : 'html'
+<th class="th custom-cell-border-bottom custom-cell-border-right">API 유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">데이터포맷</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">수정일</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">심의유형</th>
+<th class="th custom-cell-border-bottom custom-cell-border-right">신청가능 트래픽</th>
+<option value="24867">기념일 정보 조회</option>
+<option value="24868">공휴일 정보 조회</option>
+<option value="24869">국경일 정보조회</option>
+<option value="24870">24절기 정보 조회</option>
+<option value="24871">잡절 정보 조회</option>
+<button type="button" class="button" onclick="apiObj.fn_selectApiDetailFunction()" title="조회하기">조회</button>
+<strong>활용승인 절차</strong>
+<strong>신청가능 트래픽</strong>
+<strong>요청주소</strong>
+<strong>서비스URL</strong>
+<h4 class="tit">요청변수(Request Parameter)</h4>
+<p class="tit-hide">요청변수(Request Parameter)</p>
+<td data-paramtr-nm="ServiceKey">ServiceKey</td>
+<td data-paramtr-nm="pageNo">pageNo</td>
+<td data-paramtr-nm="numOfRows">numOfRows</td>
+<td data-paramtr-nm="solYear">solYear</td>
+<td data-paramtr-nm="solMonth">solMonth</td>
+<h4 class="tit">출력결과(Response Element)</h4>
+<p class="tit-hide">출력결과(Response Element)</p>
+<td>numOfRows</td>
+<td>pageNo</td>
+<td>locdate</td>
+<td>isHoliday</td>
+<td>dateName</td>
+dataObj.serviceKey = "";
+paramObj.paramtrNm = "ServiceKey";
+paramObj.paramtrNm = "pageNo";
+paramObj.paramtrNm = "numOfRows";
+paramObj.paramtrNm = "solYear";
+paramObj.paramtrNm = "solMonth";
+dataType: "json",
+//         "/download/" + self.publicDataPk + "/standard.do?dataType=csv&recommendDataYn=Y",
+// window.location.href = "/download/" + self.publicDataPk + "/standard.do?dataType=csv";
+<span class="tit">수정일</span>
+<span class="tit">수정일</span>
+<span class="title" style="color: #333; font-weight: bold; font-size: 16px;">한국천문연구원_일요일 정보조회</span>
+<span class="tit">수정일</span>
+<span class="tit">수정일</span>
+<span class="tit">수정일</span>
+, dataType : 'html'
+dataType : "json",
+dataType : "json",

@@ -1,0 +1,44 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: heatgrid_ops_pgvector
+    environment:
+      POSTGRES_USER: heatgrid
+      POSTGRES_PASSWORD: heatgrid_dev
+      POSTGRES_DB: heatgrid
+    ports:
+      - "5434:5432"
+    volumes:
+      - heatgrid_ops_pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U heatgrid -d heatgrid"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: postgresql://heatgrid:heatgrid_dev@db:5432/heatgrid
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./data:/app/data
+      - ./reports:/app/reports
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  heatgrid_ops_pgdata:

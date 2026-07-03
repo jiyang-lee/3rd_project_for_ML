@@ -1,9 +1,0 @@
-.env
-data/
-frontend/node_modules/
-frontend/dist/
-frontend/dist-test/
-frontend/*.tsbuildinfo
-*.log
-__pycache__/
-*.pyc

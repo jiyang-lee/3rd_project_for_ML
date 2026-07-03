@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeatGridAgent LLM Agent Architecture Report</title>
+<meta name="description" content="HeatGridAgent M1 specialist package 기반 LLM agent 구조, 비용 절감, 데이터/DB/Tool 설계 보고서">
+<style>
+:root {
+  --bg: #08090a;
+  --panel: #0f1011;
+  --surface: #151719;
+  --surface-2: #191a1b;
+  --text: #f7f8f8;
+  --muted: #aeb6c2;
+  --dim: #8a8f98;
+  --line: rgba(255,255,255,0.08);
+  --line-soft: rgba(255,255,255,0.05);
+  --accent: #7170ff;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --blue: #38bdf8;
+  --purple: #8b5cf6;
+  --max: 1220px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(113,112,255,0.16), transparent 32%),
+    radial-gradient(circle at 86% 8%, rgba(34,197,94,0.08), transparent 28%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.62;
+  word-break: keep-all;
+}
+.shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+.hero { padding: 64px 0 36px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr); gap: 28px; align-items: stretch; }
+.kicker { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 14px; }
+h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: 1.06; letter-spacing: 0; font-weight: 760; }
+.lead { max-width: 68ch; color: var(--muted); font-size: 17px; margin: 20px 0 0; }
+.hero-note, .panel, .card, .metric, .chart-panel, .operation-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  min-width: 0;
+}
+.hero-note { display: grid; gap: 12px; padding: 22px; }
+.note-row { display: grid; grid-template-columns: 112px 1fr; gap: 14px; border-bottom: 1px solid var(--line-soft); padding-bottom: 12px; }
+.note-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.note-row span:first-child { color: var(--dim); font-size: 13px; }
+.note-row strong { font-size: 14px; }
+.path-text { word-break: break-all; overflow-wrap: anywhere; }
+.section { padding: 48px 0; border-top: 1px solid var(--line-soft); }
+.section-head { max-width: 920px; margin-bottom: 22px; }
+h2 { margin: 0 0 10px; font-size: clamp(24px, 3vw, 36px); line-height: 1.18; letter-spacing: 0; }
+.section-head p, .panel p, .card p { margin: 0; color: var(--muted); }
+.grid { display: grid; gap: 16px; }
+.grid > *, .chart-grid > *, .hero-grid > * { min-width: 0; }
+.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.metric { background: var(--surface); padding: 18px; min-height: 118px; }
+.metric span { color: var(--dim); font-size: 13px; display: block; }
+.metric strong { font-size: clamp(25px, 4vw, 38px); letter-spacing: 0; display: block; line-height: 1.15; margin: 10px 0 6px; }
+.metric p { margin: 0; color: var(--muted); font-size: 13px; }
+.panel { background: var(--panel); padding: 24px; }
+.panel h3, .card h3 { margin: 0 0 10px; font-size: 18px; }
+.card { background: var(--surface); padding: 20px; }
+.card h3 { display: flex; gap: 10px; align-items: center; font-size: 17px; }
+.card h3 span {
+  display: inline-grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 6px; background: rgba(113,112,255,0.18); color: #c4c6ff; font-size: 13px;
+}
+.check { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+.check li { border-left: 2px solid var(--accent); padding-left: 12px; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.badge { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; color: var(--muted); font-size: 12px; background: rgba(255,255,255,0.025); }
+.flow { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; }
+.flow-step { position: relative; min-height: 156px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.flow-step:last-child { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.55); }
+.flow-step:nth-child(6) { background: rgba(34,197,94,0.10); border-color: rgba(34,197,94,0.48); }
+.flow-step:after { content: ""; position: absolute; top: 50%; right: -12px; width: 12px; height: 2px; background: var(--accent); }
+.flow-step:last-child:after { display: none; }
+.flow-step strong { display: block; margin-bottom: 8px; }
+.flow-step span { display: block; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.chart-grid { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: 16px; }
+.chart-panel { margin: 0; background: var(--panel); padding: 18px; }
+.chart-panel figcaption { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 14px; }
+.chart-panel figcaption strong { font-size: 15px; }
+.chart-panel figcaption span { color: var(--dim); font-size: 12px; }
+.bar-chart { display: grid; gap: 12px; }
+.bar-label { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 13px; margin-bottom: 5px; }
+.bar-label strong { color: var(--text); }
+.bar-track { height: 12px; background: rgba(255,255,255,0.055); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: inherit; }
+svg { width: 100%; max-width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); }
+.table-wrap { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line-soft); font-size: 13px; vertical-align: top; }
+th { color: var(--text); background: rgba(255,255,255,0.035); font-weight: 700; }
+td { color: var(--muted); }
+.operation-card { border-color: rgba(34,197,94,0.85); background: #14231c; padding: 22px; }
+.operation-card .top { display: flex; justify-content: space-between; gap: 16px; align-items: start; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 14px; margin-bottom: 14px; }
+.operation-card .top strong { font-size: 20px; }
+.level { border-radius: 6px; color: #04130a; background: var(--green); padding: 4px 8px; font-weight: 800; font-size: 12px; white-space: nowrap; }
+.operation-card dl { display: grid; grid-template-columns: 130px 1fr; gap: 8px 12px; margin: 0; }
+.operation-card dt { color: #8fd9a8; font-size: 13px; }
+.operation-card dd { margin: 0; color: #e8f8ee; font-size: 13px; }
+.source-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.source-list li { display: grid; grid-template-columns: 210px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+.source-list li:last-child { border-bottom: 0; }
+.source-list strong { color: var(--text); font-size: 13px; }
+.source-list span { color: var(--muted); font-size: 13px; }
+.tool-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tool-card { min-height: 138px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.tool-card strong { display: block; margin-bottom: 8px; }
+.tool-card span { color: var(--muted); font-size: 13px; display: block; }
+.footer { padding: 34px 0 56px; color: var(--dim); font-size: 13px; border-top: 1px solid var(--line-soft); }
+@media (max-width: 980px) {
+  .hero-grid, .cols-4, .cols-3, .cols-2, .chart-grid, .flow, .tool-grid { grid-template-columns: 1fr; }
+  .flow-step:after { display: none; }
+  .source-list li { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .shell { width: min(100% - 24px, var(--max)); }
+  .hero { padding-top: 40px; }
+  .panel, .chart-panel, .hero-note { padding: 16px; }
+  .note-row, .operation-card dl { grid-template-columns: 1fr; }
+  th, td { padding: 10px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .metric, .panel, .card, .chart-panel, .operation-card { animation: rise .55s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="kicker">HeatGridAgent final model to LLM agent</p>
+      <h1>관리자가 오늘 볼 것만 남기는 운영 에이전트 설계</h1>
+      <p class="lead">이 보고서는 <strong>m1_specialist_package.zip</strong>의 실제 모델 산출물과 검증 결과를 기준으로, 왜 돈을 낼 가치가 있는지, LLM 비용을 어떻게 줄일지, ML/DL만으로 부족한 지점이 무엇인지, 어떤 데이터/DB/Tool이 필요한지 설명합니다.</p>
+    </div>
+    <aside class="hero-note" aria-label="package facts">
+      <div class="note-row"><span>확인한 파일</span><strong class="path-text">C:/Users/Admin/Downloads/m1_specialist_package.zip</strong></div>
+      <div class="note-row"><span>수정 시각</span><strong>2026-07-03 09:06</strong></div>
+      <div class="note-row"><span>패키지 규모</span><strong>127 files, 6.28 MB zip, 24.59 MB unpacked</strong></div>
+      <div class="note-row"><span>핵심 판단</span><strong>LLM은 예측 모델이 아니라 운영 판단 압축과 문서화 계층이다.</strong></div>
+    </aside>
+  </div>
+</header>
+
+<main>
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>먼저 결론</h2>
+      <p>이 에이전트의 상품 가치는 자연어 채팅이 아니라, 모델 출력과 운영 데이터를 묶어 “오늘 무엇을 먼저 조치할지”를 증거와 함께 줄이는 데 있습니다.</p>
+    </div>
+    <div class="grid cols-4">
+      <div class="metric"><span>공식 agent card</span><strong>1,226</strong><p>55개 운영 컬럼</p></div>
+      <div class="metric"><span>대상 window</span><strong>1,252</strong><p>232개 feature/metadata</p></div>
+      <div class="metric"><span>pre_fault</span><strong>295</strong><p>normal 931건과 비교</p></div>
+      <div class="metric"><span>고장 이벤트</span><strong>28</strong><p>holdout event recall 87.5%</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>4가지 핵심 질문에 대한 답</h2>
+      <p>도메인을 모르는 사람도 이해할 수 있게 “돈을 내는 이유, 비용 구조, LLM의 역할, 필요한 데이터”로 분리했습니다.</p>
+    </div>
+    <div class="grid cols-2">
+      <article class="card">
+        <h3><span>1</span>왜 관리자가 돈 주고 써야 하나</h3>
+        <p>관리자가 하루 종일 계기판, 민원 엑셀, 규정, 과거 작업 이력을 뒤지는 시간을 줄이고, 위험 단지와 점검 순서를 카드로 받기 때문입니다. 핵심 비용 절감은 조치 지연, 불필요한 출동, 보고서 작성, 책임구간 확인에서 발생합니다.</p>
+        <ul class="check">
+          <li>위험 단지/기계실 랭킹으로 오늘의 순서가 바로 보인다.</li>
+          <li>모델 점수와 근거가 같이 있어 왜 1순위인지 설명 가능하다.</li>
+          <li>보고서, 업체 전달문, 입주민 안내문을 즉시 초안화한다.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3><span>2</span>LLM 비용을 어떻게 줄이나</h3>
+        <p>원시 센서 시계열 전체를 LLM에 넣지 않습니다. 코드와 모델이 먼저 점수, 근거, review flag를 만들고 LLM은 Top-N 카드와 선택된 근거만 받아 설명과 문서를 만듭니다.</p>
+        <ul class="check">
+          <li>일일 배치에서는 Top 10-30개 카드만 LLM 후보로 전달한다.</li>
+          <li>규정/RAG와 작업 이력 조회는 버튼 클릭 또는 질문 때만 호출한다.</li>
+          <li>같은 카드의 보고서와 문구는 캐시하고, 템플릿을 우선 사용한다.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3><span>3</span>왜 LLM이 필요한가</h3>
+        <p>ML/DL은 위험 점수와 라벨을 만들 수 있지만 “관리자가 어떤 순서로 누구에게 무엇을 말해야 하는지”까지 안정적으로 문장화하지 못합니다. 책임구간, 규정, 민원 문장, 보고 톤은 언어와 문맥 판단이 필요합니다.</p>
+        <ul class="check">
+          <li>모델 점수를 사람 말로 압축하고 근거를 연결한다.</li>
+          <li>규정, SOP, 민원, 작업 이력을 한 질문 안에서 조합한다.</li>
+          <li>업체 전달문, 내부 보고, 입주민 공지를 대상별 톤으로 바꾼다.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3><span>4</span>필요한 데이터/DB/Tool은 무엇인가</h3>
+        <p>현재 ZIP은 모델 score와 agent card까지는 준비되어 있습니다. 실제 서비스가 되려면 민원, 작업 이력, 규정/SOP, 책임구간, 업체 연락처를 운영 DB와 RAG Tool로 붙여야 합니다.</p>
+        <ul class="check">
+          <li>필수 DB: sensor windows, model scores, agent cards, complaints, maintenance history, document chunks.</li>
+          <li>필수 Tool: SQL 조회, 유사사례 검색, 규정 RAG, 책임구간 라우터, 보고서/전달문 생성.</li>
+          <li>필수 로그: LLM 입력/출력, 사용 토큰, 근거 카드 ID, 사람이 수정한 최종 문장.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>데이터 입력부터 LLM 출력까지</h2>
+      <p>원시 데이터는 코드와 모델이 처리하고, LLM은 마지막 설명과 문서화에 집중합니다.</p>
+    </div>
+    <div class="flow" aria-label="Data to LLM flow">
+      <div class="flow-step"><strong>데이터 입력</strong><span>SCADA 센서<br>민원 엑셀<br>작업 이력<br>규정/SOP</span></div>
+      <div class="flow-step"><strong>전처리</strong><span>6시간 window<br>결측/변화량<br>계절/시간</span></div>
+      <div class="flow-step"><strong>피처 엔지니어링</strong><span>145개 후보<br>compact13<br>변화량 중심</span></div>
+      <div class="flow-step"><strong>모델/룰</strong><span>Anomaly<br>Risk<br>Leadtime<br>M1 gates</span></div>
+      <div class="flow-step"><strong>우선순위 정책</strong><span>0.65 기존<br>0.35 M1<br>review flag</span></div>
+      <div class="flow-step"><strong>Agent Card</strong><span>위험도<br>근거<br>권장 조치<br>신뢰도</span></div>
+      <div class="flow-step"><strong>LLM Agent</strong><span>설명<br>보고서<br>업체/입주민 문장<br>질문 응답</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge">핵심 경계: raw time-series 전체 prompt 투입 금지</span>
+      <span class="badge">권장: Top-N 카드와 필요한 근거 필드만 전달</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>현재 최종 모델 구조</h2>
+      <p>M1 specialist는 risk/leadtime을 대체하지 않고, 병렬 근거를 추가해 공식 priority를 보정합니다.</p>
+    </div>
+    <svg viewBox="0 0 1120 520" role="img" aria-label="Model structure diagram">
+      <rect width="1120" height="520" rx="22" fill="#0f1011"></rect>
+      <text x="34" y="42" fill="#f7f8f8" font-size="22" font-weight="700">현재 최종 모델 구조</text>
+      <text x="34" y="66" fill="#8a8f98" font-size="13">단일 모델 하나가 아니라 anomaly, current-best, M1 specialist, 운영 정책의 조합</text>
+
+      <rect x="48" y="104" width="1024" height="104" rx="16" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="72" y="136" fill="#38bdf8" font-size="16" font-weight="700">A. 이상 감지 라인</text>
+      <text x="72" y="176" fill="#d0d6e0" font-size="12">StandardScaler</text>
+      <text x="250" y="176" fill="#d0d6e0" font-size="12">IsolationForest</text>
+      <text x="426" y="176" fill="#d0d6e0" font-size="12">LedoitWolf Mahalanobis</text>
+      <text x="660" y="176" fill="#d0d6e0" font-size="12">q99 ratio</text>
+      <text x="826" y="176" fill="#d0d6e0" font-size="12">criticality counter</text>
+
+      <rect x="48" y="230" width="1024" height="104" rx="16" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="72" y="262" fill="#f59e0b" font-size="16" font-weight="700">B. 기존 best 라인</text>
+      <text x="72" y="302" fill="#d0d6e0" font-size="12">risk_probability</text>
+      <text x="250" y="302" fill="#d0d6e0" font-size="12">risk_score</text>
+      <text x="426" y="302" fill="#d0d6e0" font-size="12">leadtime bucket</text>
+      <text x="660" y="302" fill="#d0d6e0" font-size="12">urgency score</text>
+      <text x="826" y="302" fill="#d0d6e0" font-size="12">current-best priority</text>
+
+      <rect x="48" y="356" width="1024" height="104" rx="16" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="72" y="388" fill="#8b5cf6" font-size="16" font-weight="700">C. M1 specialist 라인</text>
+      <text x="72" y="428" fill="#d0d6e0" font-size="12">compact13 features</text>
+      <text x="250" y="428" fill="#d0d6e0" font-size="12">RF fault/task/activity</text>
+      <text x="458" y="428" fill="#d0d6e0" font-size="12">Logistic pre-event</text>
+      <text x="660" y="428" fill="#d0d6e0" font-size="12">fault group weight</text>
+      <text x="826" y="428" fill="#d0d6e0" font-size="12">specialist priority</text>
+
+      <rect x="286" y="478" width="548" height="28" rx="10" fill="#14231c" stroke="#22c55e"></rect>
+      <text x="560" y="497" fill="#f7f8f8" font-size="14" font-weight="700" text-anchor="middle">공식 priority = 0.65 x current-best + 0.35 x M1 specialist</text>
+    </svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="grid cols-4">
+      <div class="metric"><span>raw inventory</span><strong>39</strong><p>manufacturer 1 파일/운영 데이터 확인</p></div>
+      <div class="metric"><span>schema rows</span><strong>577</strong><p>센서 컬럼 샘플 요약</p></div>
+      <div class="metric"><span>feature columns</span><strong>145</strong><p>baseline/M1 모두 선택</p></div>
+      <div class="metric"><span>substations</span><strong>30</strong><p>공식 카드 기준</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell chart-grid">
+    <figure class="chart-panel">
+      <figcaption><strong>공식 Priority 분포</strong><span>urgent/high가 오늘 조치 후보</span></figcaption>
+      <div class="bar-chart">
+        <div><div class="bar-label"><span>urgent</span><strong>108</strong></div><div class="bar-track"><div class="bar-fill" style="width:14.7%;background:#ef4444"></div></div></div>
+        <div><div class="bar-label"><span>high</span><strong>116</strong></div><div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#f59e0b"></div></div></div>
+        <div><div class="bar-label"><span>medium</span><strong>268</strong></div><div class="bar-track"><div class="bar-fill" style="width:36.5%;background:#8b5cf6"></div></div></div>
+        <div><div class="bar-label"><span>low</span><strong>734</strong></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#38bdf8"></div></div></div>
+      </div>
+    </figure>
+    <figure class="chart-panel">
+      <figcaption><strong>Holdout 성능 비교</strong><span>row 기준</span></figcaption>
+      <svg viewBox="0 0 880 360" role="img" aria-label="Holdout metric comparison chart">
+        <rect width="880" height="360" rx="18" fill="#0f1011"></rect>
+        <text x="36" y="32" fill="#f7f8f8" font-size="18" font-weight="700">Hybrid는 오탐을 크게 낮추는 운영형 조합</text>
+        <text x="36" y="56" fill="#8a8f98" font-size="12">정밀도/재현율은 높을수록 좋고, 오탐률은 낮을수록 좋다.</text>
+        <line x1="78" y1="276" x2="818" y2="276" stroke="rgba(255,255,255,0.07)"></line>
+        <line x1="78" y1="218.5" x2="818" y2="218.5" stroke="rgba(255,255,255,0.07)"></line>
+        <line x1="78" y1="161" x2="818" y2="161" stroke="rgba(255,255,255,0.07)"></line>
+        <line x1="78" y1="103.5" x2="818" y2="103.5" stroke="rgba(255,255,255,0.07)"></line>
+        <line x1="78" y1="46" x2="818" y2="46" stroke="rgba(255,255,255,0.07)"></line>
+        <text x="66" y="280" fill="#62666d" font-size="11" text-anchor="end">0%</text>
+        <text x="66" y="222" fill="#62666d" font-size="11" text-anchor="end">25%</text>
+        <text x="66" y="165" fill="#62666d" font-size="11" text-anchor="end">50%</text>
+        <text x="66" y="108" fill="#62666d" font-size="11" text-anchor="end">75%</text>
+        <text x="66" y="50" fill="#62666d" font-size="11" text-anchor="end">100%</text>
+
+        <text x="201" y="310" fill="#d0d6e0" font-size="13" text-anchor="middle">정밀도</text>
+        <rect x="116" y="109.3" width="42" height="166.7" rx="6" fill="#64748b"></rect><text x="137" y="101" fill="#f7f8f8" font-size="11" text-anchor="middle">72.5</text>
+        <rect x="170" y="128.8" width="42" height="147.2" rx="6" fill="#8b5cf6"></rect><text x="191" y="120" fill="#f7f8f8" font-size="11" text-anchor="middle">64.0</text>
+        <rect x="224" y="69.8" width="42" height="206.2" rx="6" fill="#22c55e"></rect><text x="245" y="62" fill="#f7f8f8" font-size="11" text-anchor="middle">89.7</text>
+
+        <text x="448" y="310" fill="#d0d6e0" font-size="13" text-anchor="middle">재현율</text>
+        <rect x="363" y="102.7" width="42" height="173.3" rx="6" fill="#64748b"></rect><text x="384" y="95" fill="#f7f8f8" font-size="11" text-anchor="middle">75.3</text>
+        <rect x="417" y="180.4" width="42" height="95.6" rx="6" fill="#8b5cf6"></rect><text x="438" y="172" fill="#f7f8f8" font-size="11" text-anchor="middle">41.6</text>
+        <rect x="471" y="120.7" width="42" height="155.3" rx="6" fill="#22c55e"></rect><text x="492" y="113" fill="#f7f8f8" font-size="11" text-anchor="middle">67.5</text>
+
+        <text x="695" y="310" fill="#d0d6e0" font-size="13" text-anchor="middle">오탐률</text>
+        <rect x="610" y="228.3" width="42" height="47.7" rx="6" fill="#64748b"></rect><text x="631" y="220" fill="#f7f8f8" font-size="11" text-anchor="middle">20.8</text>
+        <rect x="664" y="236.9" width="42" height="39.1" rx="6" fill="#8b5cf6"></rect><text x="685" y="229" fill="#f7f8f8" font-size="11" text-anchor="middle">17.0</text>
+        <rect x="718" y="263.0" width="42" height="13.0" rx="6" fill="#22c55e"></rect><text x="739" y="255" fill="#f7f8f8" font-size="11" text-anchor="middle">5.7</text>
+
+        <rect x="560" y="22" width="10" height="10" rx="2" fill="#64748b"></rect><text x="576" y="32" fill="#d0d6e0" font-size="12">기존 우선순위</text>
+        <rect x="560" y="44" width="10" height="10" rx="2" fill="#8b5cf6"></rect><text x="576" y="54" fill="#d0d6e0" font-size="12">M1 specialist</text>
+        <rect x="560" y="66" width="10" height="10" rx="2" fill="#22c55e"></rect><text x="576" y="76" fill="#d0d6e0" font-size="12">Hybrid 공식</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>운영 카드 예시</h2>
+      <p>관리자가 보는 첫 화면은 챗 입력창이 아니라 이런 카드입니다. 궁금할 때만 “왜?”, “보고서 생성”, “업체 전달문” 버튼으로 LLM을 호출합니다.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="operation-card">
+        <div class="top"><strong>오늘 조치 필요: 제어기/펌프 계통 이상 가능성</strong><span class="level">URGENT</span></div>
+        <dl>
+          <dt>단지/기계실</dt><dd>substation 8, SH + DHW</dd>
+          <dt>위험도</dt><dd>priority 99.4, risk critical, leadtime 0-24h</dd>
+          <dt>근거</dt><dd>current-best와 M1 specialist 모두 high priority. fault_gate 0.838, pre_event 0.972.</dd>
+          <dt>의심 원인</dt><dd>temperature monitor/controller defective, control_controller group</dd>
+          <dt>먼저 볼 것</dt><dd>제어기 설정, 공급/환수 온도 편차, 펌프 운전상태, 밸브 개도</dd>
+          <dt>버튼</dt><dd>왜 1순위인지 설명 / 작업지시 생성 / 업체 메시지 / 보고서</dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Top priority 실제 행</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Substation</th><th>Window start</th><th>Fault label</th><th>Score</th><th>Level</th><th>Leadtime</th><th>Review</th></tr></thead>
+            <tbody>
+              <tr><td>8</td><td>2018-04-26 12:00</td><td>Temperature monitor/controller defective</td><td>99.4</td><td>urgent</td><td>0-24h</td><td>필요</td></tr>
+              <tr><td>7</td><td>2017-11-26 06:00</td><td>Motorised control valve defective</td><td>99.4</td><td>urgent</td><td>0-24h</td><td>필요</td></tr>
+              <tr><td>7</td><td>2017-11-25 12:00</td><td>Motorised control valve defective</td><td>99.3</td><td>urgent</td><td>0-24h</td><td>필요</td></tr>
+              <tr><td>10</td><td>2014-05-04 00:00</td><td>Control valve actuator defective</td><td>98.1</td><td>urgent</td><td>1-3d</td><td>필요</td></tr>
+              <tr><td>28</td><td>2020-01-12 18:00</td><td>Failure of heating circuit pump</td><td>98.1</td><td>urgent</td><td>0-24h</td><td>필요</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>LLM 호출을 줄이는 경계 설계</h2>
+      <p>비싼 LLM은 마지막 20%에만 사용합니다. 반복 계산, 랭킹, threshold, score 결합은 코드와 모델이 담당합니다.</p>
+    </div>
+    <div class="tool-grid">
+      <div class="tool-card"><strong>1. 모델 배치</strong><span>센서 window 전체를 코드로 점수화. LLM 호출 없음.</span></div>
+      <div class="tool-card"><strong>2. 카드 압축</strong><span>priority, why_reason, recommended_action 필드 생성. LLM 호출 없음.</span></div>
+      <div class="tool-card"><strong>3. Top-N 선별</strong><span>urgent/high 또는 review_required만 후보로 전달.</span></div>
+      <div class="tool-card"><strong>4. 도구 조회</strong><span>선택된 카드 ID로 규정, 이력, 민원만 부분 조회.</span></div>
+      <div class="tool-card"><strong>5. 문장 생성</strong><span>관리자 질문 또는 버튼 클릭 시에만 LLM 실행.</span></div>
+    </div>
+    <div class="badges">
+      <span class="badge">금지: raw CSV 전체 prompt 투입</span>
+      <span class="badge">권장: card_id 기반 조회</span>
+      <span class="badge">권장: 템플릿 우선</span>
+      <span class="badge">권장: 결과 캐시</span>
+      <span class="badge">권장: token/cost log</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>LLM 에이전트 구조</h2>
+      <p>챗봇이 메인이 아니라, 버튼이 붙은 운영 카드와 필요한 때만 호출되는 도구 조합이 메인입니다.</p>
+    </div>
+    <svg viewBox="0 0 1120 410" role="img" aria-label="LLM agent architecture diagram">
+      <rect width="1120" height="410" rx="22" fill="#0f1011"></rect>
+      <rect x="70" y="92" width="210" height="86" rx="14" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="88" y="122" fill="#f7f8f8" font-size="15" font-weight="700">스케줄러</text>
+      <text x="88" y="148" fill="#aeb6c2" font-size="12">매 시간/매일 모델 실행</text>
+
+      <rect x="350" y="92" width="210" height="86" rx="14" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="368" y="122" fill="#f7f8f8" font-size="15" font-weight="700">운영 카드 DB</text>
+      <text x="368" y="148" fill="#aeb6c2" font-size="12">Top-N 위험 카드 저장</text>
+
+      <rect x="630" y="92" width="210" height="86" rx="14" fill="#211b32" stroke="#8b5cf6"></rect>
+      <text x="648" y="122" fill="#f7f8f8" font-size="15" font-weight="700">LLM Orchestrator</text>
+      <text x="648" y="148" fill="#aeb6c2" font-size="12">질문 의도와 버튼 분기</text>
+
+      <rect x="70" y="254" width="210" height="86" rx="14" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="88" y="284" fill="#f7f8f8" font-size="15" font-weight="700">SQL Tool</text>
+      <text x="88" y="310" fill="#aeb6c2" font-size="12">카드/민원/이력 조회</text>
+
+      <rect x="350" y="254" width="210" height="86" rx="14" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="368" y="284" fill="#f7f8f8" font-size="15" font-weight="700">RAG Tool</text>
+      <text x="368" y="310" fill="#aeb6c2" font-size="12">규정/SOP/책임구간 검색</text>
+
+      <rect x="630" y="254" width="210" height="86" rx="14" fill="#151719" stroke="rgba(255,255,255,0.08)"></rect>
+      <text x="648" y="284" fill="#f7f8f8" font-size="15" font-weight="700">문서 Tool</text>
+      <text x="648" y="310" fill="#aeb6c2" font-size="12">보고서/업체/공지문 생성</text>
+
+      <rect x="870" y="174" width="190" height="110" rx="14" fill="#14231c" stroke="#22c55e"></rect>
+      <text x="888" y="204" fill="#f7f8f8" font-size="15" font-weight="700">관리자 화면</text>
+      <text x="888" y="230" fill="#aeb6c2" font-size="12">오늘 조치 / 왜?</text>
+      <text x="888" y="250" fill="#aeb6c2" font-size="12">보고서 / 전달문</text>
+
+      <line x1="280" y1="135" x2="350" y2="135" stroke="#7170ff" stroke-width="2"></line>
+      <line x1="560" y1="135" x2="630" y2="135" stroke="#7170ff" stroke-width="2"></line>
+      <line x1="840" y1="135" x2="870" y2="205" stroke="#22c55e" stroke-width="2"></line>
+      <line x1="735" y1="178" x2="175" y2="254" stroke="#8b5cf6" stroke-width="2"></line>
+      <line x1="735" y1="178" x2="455" y2="254" stroke="#8b5cf6" stroke-width="2"></line>
+      <line x1="735" y1="178" x2="735" y2="254" stroke="#8b5cf6" stroke-width="2"></line>
+      <line x1="840" y1="297" x2="870" y2="255" stroke="#22c55e" stroke-width="2"></line>
+
+      <text x="70" y="374" fill="#d0d6e0" font-size="13">비용 절감 원칙: LLM은 전체 DB를 읽지 않고, 선택된 카드 ID로 도구를 호출해 필요한 조각만 가져온다.</text>
+    </svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>필요한 데이터와 DB 구성</h2>
+      <p>모델 출력만으로는 민원, 책임구간, 작업 이력까지 설명할 수 없으므로 운영 DB와 문서 RAG가 붙어야 합니다.</p>
+    </div>
+    <svg viewBox="0 0 1120 560" role="img" aria-label="Database schema diagram">
+      <rect width="1120" height="560" rx="22" fill="#0f1011"></rect>
+      <text x="34" y="42" fill="#f7f8f8" font-size="22" font-weight="700">운영 DB와 RAG 구성</text>
+      <text x="34" y="66" fill="#8a8f98" font-size="13">현재 ZIP에는 sensor window, model score, agent card가 있고, 실제 서비스에는 운영 문맥 DB가 추가로 필요</text>
+
+      <g fill="#151719" stroke="rgba(255,255,255,0.08)">
+        <rect x="52" y="106" width="210" height="132" rx="14"></rect>
+        <rect x="330" y="106" width="210" height="132" rx="14"></rect>
+        <rect x="608" y="106" width="210" height="132" rx="14"></rect>
+        <rect x="886" y="106" width="210" height="132" rx="14"></rect>
+        <rect x="52" y="326" width="210" height="132" rx="14"></rect>
+        <rect x="330" y="326" width="210" height="132" rx="14"></rect>
+        <rect x="608" y="326" width="210" height="132" rx="14"></rect>
+        <rect x="886" y="326" width="210" height="132" rx="14"></rect>
+      </g>
+      <g fill="#f7f8f8" font-size="14" font-weight="700">
+        <text x="68" y="134">site_substation</text><text x="346" y="134">sensor_window_features</text><text x="624" y="134">model_score_snapshot</text><text x="902" y="134">agent_priority_card</text>
+        <text x="68" y="354">complaint_log</text><text x="346" y="354">maintenance_history</text><text x="624" y="354">doc_chunks</text><text x="902" y="354">action_ticket</text>
+      </g>
+      <g fill="#aeb6c2" font-size="12">
+        <text x="68" y="164">site_id, substation_id</text><text x="68" y="186">세대수/설비 구성</text>
+        <text x="346" y="164">window_id, 145 features</text><text x="346" y="186">6h window</text>
+        <text x="624" y="164">risk, leadtime</text><text x="624" y="186">anomaly, m1 gates</text>
+        <text x="902" y="164">priority_score</text><text x="902" y="186">why_reason, action</text>
+        <text x="68" y="384">민원 유형, 세대/동</text><text x="68" y="406">접수 시각</text>
+        <text x="346" y="384">작업 내용, 부품</text><text x="346" y="406">업체/결과</text>
+        <text x="624" y="384">규정, SOP, 책임구간</text><text x="624" y="406">embedding</text>
+        <text x="902" y="384">작업지시, 상태</text><text x="902" y="406">보고서 링크</text>
+      </g>
+      <g stroke="#7170ff" stroke-width="1.7">
+        <line x1="262" y1="172" x2="330" y2="172"></line><line x1="540" y1="172" x2="608" y2="172"></line><line x1="818" y1="172" x2="886" y2="172"></line>
+      </g>
+      <g stroke="#22c55e" stroke-width="1.7">
+        <line x1="991" y1="238" x2="991" y2="326"></line><line x1="818" y1="392" x2="886" y2="392"></line>
+      </g>
+      <g stroke="#f59e0b" stroke-width="1.7">
+        <line x1="157" y1="326" x2="157" y2="238"></line><line x1="435" y1="326" x2="435" y2="238"></line>
+      </g>
+      <line x1="713" y1="326" x2="713" y2="238" stroke="#8b5cf6" stroke-width="1.7"></line>
+      <text x="52" y="514" fill="#d0d6e0" font-size="13">현재 ZIP에는 sensor window, model score, agent card는 준비되어 있다. 민원 엑셀, 규정/SOP, 작업 이력, 업체 연락처는 다음 단계에서 별도 DB로 붙여야 한다.</text>
+    </svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell grid cols-2">
+    <div class="panel">
+      <h3>현재 package source mix</h3>
+      <ul class="source-list">
+        <li><strong>current_best</strong><span>risk/leadtime/priority body and active M1 Mahalanobis+IsolationForest anomaly policy</span></li>
+        <li><strong>M1_specialist_parallel</strong><span>fault/task/activity/pre-event gate evidence and hybrid priority promotion</span></li>
+        <li><strong>operational_layer</strong><span>state card, review flags, stable crossing, shadow priority, action text</span></li>
+        <li><strong>outputs_ver2_hsj</strong><span>threshold sweep style only, no formal risk_level contract adopted</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>M1 specialist compact13 feature</h3>
+      <p>도메인을 모르는 사람에게는 “최근 6시간/12시간/1일의 온도, 유량, 환수 차이가 평소와 얼마나 달라졌는지 보는 feature”라고 설명하면 됩니다.</p>
+      <ul class="check">
+        <li>outdoor temperature change: last 12h, last 6h, last minus first</li>
+        <li>primary heating return temperature change</li>
+        <li>primary net meter flow variability change</li>
+        <li>primary net return temperature and return gap change</li>
+        <li>secondary heating supply temperature and setpoint error change</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell chart-grid">
+    <figure class="chart-panel">
+      <figcaption><strong>M1 fault group 분포</strong><span>unknown_review가 많아 human review 필요</span></figcaption>
+      <div class="bar-chart">
+        <div><div class="bar-label"><span>unknown_review</span><strong>954</strong></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#64748b"></div></div></div>
+        <div><div class="bar-label"><span>control_controller</span><strong>145</strong></div><div class="bar-track"><div class="bar-fill" style="width:15.2%;background:#8b5cf6"></div></div></div>
+        <div><div class="bar-label"><span>pump_failure</span><strong>54</strong></div><div class="bar-track"><div class="bar-fill" style="width:5.7%;background:#f59e0b"></div></div></div>
+        <div><div class="bar-label"><span>leakage_water_loss</span><strong>36</strong></div><div class="bar-track"><div class="bar-fill" style="width:3.8%;background:#22c55e"></div></div></div>
+        <div><div class="bar-label"><span>pressure_regulator</span><strong>27</strong></div><div class="bar-track"><div class="bar-fill" style="width:2.8%;background:#38bdf8"></div></div></div>
+        <div><div class="bar-label"><span>valve_actuator</span><strong>10</strong></div><div class="bar-track"><div class="bar-fill" style="width:1.0%;background:#ef4444"></div></div></div>
+      </div>
+    </figure>
+    <figure class="chart-panel">
+      <figcaption><strong>Trust level 분포</strong><span>low가 많아 자동 확정보다 보조 판단이 적합</span></figcaption>
+      <div class="bar-chart">
+        <div><div class="bar-label"><span>low</span><strong>853</strong></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#64748b"></div></div></div>
+        <div><div class="bar-label"><span>medium</span><strong>253</strong></div><div class="bar-track"><div class="bar-fill" style="width:29.7%;background:#8b5cf6"></div></div></div>
+        <div><div class="bar-label"><span>low_review</span><strong>94</strong></div><div class="bar-track"><div class="bar-fill" style="width:11.0%;background:#f59e0b"></div></div></div>
+        <div><div class="bar-label"><span>high</span><strong>18</strong></div><div class="bar-track"><div class="bar-fill" style="width:2.1%;background:#22c55e"></div></div></div>
+        <div><div class="bar-label"><span>medium_high</span><strong>8</strong></div><div class="bar-track"><div class="bar-fill" style="width:0.9%;background:#38bdf8"></div></div></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>검증 결과에서 읽어야 할 포인트</h2>
+      <p>운영 서비스는 “무조건 많이 잡는 모델”보다 “오탐을 줄이면서 조치 가능한 항목을 올리는 모델”이 중요합니다.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="panel">
+        <h3>Hybrid 우선순위가 적합한 이유</h3>
+        <p>현재 best는 recall이 높지만 holdout false positive rate가 20.8%입니다. Hybrid는 recall 67.5%로 낮아지지만 false positive rate를 5.7%까지 낮춰, 관리자 피로도를 줄이는 운영형 조합입니다.</p>
+        <div class="badges">
+          <span class="badge">Hybrid precision 89.7%</span>
+          <span class="badge">Hybrid recall 67.5%</span>
+          <span class="badge">Hybrid FPR 5.7%</span>
+          <span class="badge">Event recall 87.5%</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Ablation 요약</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>정책</th><th>Precision</th><th>Recall</th><th>FPR</th><th>Confusion</th></tr></thead>
+            <tbody>
+              <tr><td>공식 anomaly evidence만</td><td>0.411</td><td>0.102</td><td>0.046</td><td>TP 30 / FP 43 / FN 265 / TN 888</td></tr>
+              <tr><td>risk high/critical</td><td>0.948</td><td>0.746</td><td>0.013</td><td>TP 220 / FP 12 / FN 75 / TN 919</td></tr>
+              <tr><td>M1 specialist high/urgent</td><td>0.439</td><td>0.329</td><td>0.133</td><td>TP 97 / FP 124 / FN 198 / TN 807</td></tr>
+              <tr><td>priority high/urgent</td><td>0.942</td><td>0.715</td><td>0.014</td><td>TP 211 / FP 13 / FN 84 / TN 918</td></tr>
+              <tr><td>anomaly 또는 risk high</td><td>0.803</td><td>0.759</td><td>0.059</td><td>TP 224 / FP 55 / FN 71 / TN 876</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>서비스 구현에 필요한 Tool 목록</h2>
+      <p>처음부터 거대한 챗봇을 만들지 않고, 버튼별 Tool을 작게 만들면 비용과 리스크를 줄일 수 있습니다.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="panel"><h3>조회 Tool</h3><p>SQLReadTool, TimeSeriesFetchTool, AgentCardLookupTool, SimilarCaseSearchTool. 카드 ID로 필요한 데이터만 가져옵니다.</p></div>
+      <div class="panel"><h3>판단 Tool</h3><p>ResponsibilityRouterTool, SOPChecklistTool, RiskExplanationTool. 책임구간과 점검 순서를 규칙 기반으로 먼저 좁힙니다.</p></div>
+      <div class="panel"><h3>문서 Tool</h3><p>ReportWriterTool, VendorMessageTool, ResidentNoticeTool, TicketCreateTool. LLM은 템플릿 변수와 근거만 받아 문장화합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>남은 데이터 공백</h2>
+      <p>현재 ZIP만으로 가능한 것과 실제 유료 서비스에 필요한 것을 분리해야 합니다.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="panel">
+        <h3>현재 준비된 것</h3>
+        <ul class="check">
+          <li>M1 manufacturer 1 기준 sensor window와 model score</li>
+          <li>risk, leadtime, anomaly, M1 specialist gate evidence</li>
+          <li>priority_score, review_required, why_reason, recommended_action이 포함된 agent card</li>
+          <li>row reconciliation, threshold sweep, ablation, holdout 검증 리포트</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>추가로 붙여야 하는 것</h3>
+        <ul class="check">
+          <li>실제 단지명, 세대수, 설비 위치, 업체 연락처, 책임구간 master</li>
+          <li>민원 엑셀과 콜센터 로그, 과거 작업 이력, 부품 교체 이력</li>
+          <li>규정, 계약, SOP 문서의 RAG index</li>
+          <li>생성 문서 승인 이력과 사람이 수정한 최종 문장 로그</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <h2>권장 1차 제품 범위</h2>
+      <p>첫 버전은 채팅보다 운영 카드, 설명 버튼, 업체 전달문, 내부 보고서 생성에 집중하는 것이 비용 대비 효과가 큽니다.</p>
+    </div>
+    <div class="grid cols-4">
+      <div class="card"><h3><span>A</span>오늘의 운영 카드</h3><p>urgent/high 카드 Top-N, review_required 카드, 신뢰도와 근거 표시.</p></div>
+      <div class="card"><h3><span>B</span>왜 이 판단인지</h3><p>모델 점수, anomaly 근거, M1 specialist 근거, 과거 유사 사례를 짧게 설명.</p></div>
+      <div class="card"><h3><span>C</span>전달문 생성</h3><p>업체, 내부 보고, 입주민 공지를 같은 근거에서 대상별 톤으로 생성.</p></div>
+      <div class="card"><h3><span>D</span>작업 결과 학습</h3><p>관리자가 수정한 조치와 실제 고장 여부를 다음 카드와 모델 검증에 반영.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p>Generated from C:/Users/Admin/Downloads/m1_specialist_package.zip. 기준 파일: output/agent/m1_agent_priority_card.csv, output/reports/m1_specialist_report.md, models/m1_specialist metadata, agent_state_card_schema.json.</p>
+  </div>
+</footer>
+</body>
+</html>

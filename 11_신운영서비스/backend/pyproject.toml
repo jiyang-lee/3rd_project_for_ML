@@ -1,0 +1,33 @@
+[project]
+name = "heatgrid-ops"
+version = "0.1.0"
+description = "HeatGrid 신운영서비스 backend"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "asyncpg>=0.30",
+    "beautifulsoup4>=4.12",
+    "fastapi>=0.115",
+    "joblib==1.5.*",
+    "langchain-openai>=0.3",
+    "langgraph>=1.2",
+    "numpy>=2.5,<3",
+    "orjson>=3.10",
+    "pandas==3.0.3",
+    "pgvector>=0.3",
+    "pydantic-settings>=2.7",
+    "pypdf>=5.0",
+    "scikit-learn==1.9.0",
+    "tiktoken>=0.8",
+    "uvicorn[standard]>=0.34",
+]
+
+[project.optional-dependencies]
+rag = ["sentence-transformers>=3.3"]
+test = ["httpx>=0.28", "pytest>=8.0", "pytest-asyncio>=0.25"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["../tests"]
+
+[tool.uv]
+package = false

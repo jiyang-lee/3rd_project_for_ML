@@ -1,0 +1,11 @@
+{
+  "source": "C:\\Project3\\HeatGrid_Agent\\best",
+  "scope": "m1_specialist",
+  "manufacturer_filter": "manufacturer 1",
+  "copied": {
+    "risk_scores": true,
+    "leadtime_scores": true,
+    "priority_scores": true
+  },
+  "role": "M1-only subset of current best risk/leadtime/priority output; used as baseline body for M1 specialist comparison"
+}
